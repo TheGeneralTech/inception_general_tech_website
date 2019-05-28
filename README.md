@@ -1,2 +1,2 @@
-# inception_general_tech_website
-generaltech.in
+# General Tech Website
+
