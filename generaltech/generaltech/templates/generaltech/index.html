@@ -1,0 +1,29 @@
+{% extends "generaltech/base.html" %}
+{% load static %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap">
+{% endblock %}
+
+{% block content %}
+<header>
+    <a id="logo" href="{% url 'index' %}">
+        <img src="{% static 'image/temp_logo.jpg' %}" alt="General Tech" />
+    </a>
+</header>
+<div id="main_article">
+
+</div>
+<div id="side_articles">
+
+</div>
+<div id="norm_articles">
+    <article></article>
+    <article></article>
+    <article></article>
+    <article></article>
+    <article></article>
+
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+header {
+    width: 1256px;
+    height: auto;
+    margin: 0 12px;
+    border: #ddd solid;
+    border-width: 0 0 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo {
+    padding: 12px;
+}
+
+#main_article {
+    margin: 12px;
+    width: 720px;
+    height: 405px;
+    float: left;
+    background-color: #eee;
+    border: #ccc solid 1px;
+    border-radius: 5px;
+}
+
+#side_articles {
+    margin: 12px 12px 12px 0;
+    width: 520px;
+    height: 405px;
+    float: right;
+    background-color: #eee;
+    border: #ccc solid 1px;
+    border-radius: 5px;
+}
+
+#norm_articles {
+    clear: both;
+    margin: auto;
+    width: 544px;
+    height: auto;
+    padding: 12px;
+}
+
+article {
+    width: 520px;
+    height: 400px;
+    margin: 12px;
+    background-color: #eee;
+}
