@@ -20,4 +20,5 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('article/<slug:article_id>', views.article, name='article'),
+    path('writer/<slug:writer_id>', views.writer, name='writer'),
 ]
