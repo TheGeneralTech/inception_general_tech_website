@@ -1,91 +1,75 @@
 header {
-    width: 1256px;
-    height: 100px;
-    margin: 0 12px;
-    border: #ddd solid;
+    width: 1184px;
+    margin: 0 8px 8px;
+    border: #eee solid;
     border-width: 0 0 1px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
 }
 #social_links {
     right: 0;
     bottom: 0;
     position: absolute;
-    padding: 8px;
+    margin: 4px;
 }
 #social_links a svg {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     margin: 4px;
     float: left;
 }
+#date_cont {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: 8px;
+    font-size: .8em;
+    display: inline;
+}
 
 #logo {
-
-}
-/* General classes */
-.image_cont {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.small_image_cont {
-    width:110px;
-    height: 110px;
-    border: #ccc solid 0;
-    border-radius: 5px;
-    overflow: hidden;
-    background-color: #999;
+    width: 460px;
+    display: block;
+    margin: auto;
     position: relative;
-    float: left;
 }
-/* General classes end */
 
 /* Main article */
 #main_article_cont {
-    margin: 12px;
+    margin: 8px;
     width: 720px;
-    height: 406px;
+    height: 404px;
     float: left;
-}
-#main_article {
-    width: 720px;
-    height: 406px;
-    position: absolute;
+    position: relative;
+    display: block;
     overflow: hidden;
-    background-color: #fff;
     border: #ccc solid 0;
-    border-radius: 5px;
+    border-radius: 5px; 
 }
-#main_article div {
-    width: 720px;
-    height: 406px;
+#main_article_cont img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     position: absolute;
 }
-#main_article div img {
-    width: 720px;
-}
-#main_article span {
+.curtain {
     position: absolute;
-    width: 720px;
-    height: 406px;
+    width: 100%;
+    height: 100%;
     display: block;
     background-color: rgba(0, 0, 0, .4);
 }
-#main_article summary {
+#main_article_cont summary {
+    width: 100%;
     position: absolute;
     bottom: 0;
     padding: 12px;
-    width: 696px;
     height: auto;
 }
-#main_article p,h2 {
+#main_article_cont p,h2 {
     display: inline;
     color: #fff;
 }
-#main_article p {
+#main_article_cont p {
     line-height: 2;
     font-size: .8em;
 }
@@ -93,45 +77,63 @@ header {
 
 /* Side articles */
 #side_articles {
-    margin: 12px 12px 12px 0;
-    width: 522px;
+    margin: 8px;
+    width: 448px;
     height: 404px;
     float: left;
     background-color: #fff;
-    border: #ccc solid 1px;
+    border: #eee solid 1px;
     border-radius: 5px;
-}
-#side_articles img {
-    width: 110px;
-    height: 110px;
+    position: relative;
 }
 .side_article_cont {
-    height: 110px;
-    width: 498px;
-    padding: 12px;
+    width: 100%;
+    height: 134px;
     display: block;
     color: #000;
+    position: relative;
 }
-#side_articles h3, p {
+.side_article_cont img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    margin: 12px;
+    border: #ccc solid 0;
+    border-radius: 5px;
+    background-color: #999;
+    float: left;
+}
+.side_article_cont h3, p {
     display: inline;
 }
-#side_articles p {
-    font-size: .8em;
-}
-#side_articles summary {
-    width: 354px;
-    height: 86px;
-    float: left;
-    position: relative;
-    padding: 12px;
+.side_article_title {
+    max-height: 92px;
     overflow: hidden;
 }
-.side_article__separator {
-    width: 498px;
-    display: block;
+.side_article_cont p {
+    font-size: .8em;
+}
+.side_article_cont summary {
+    width: 100%;
+    height: 134px;
+    float: left;
+    position: absolute;
+    padding: 12px 12px 12px 134px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+#hor_separators {
+    position: absolute;
+    padding: 0 12px;
+    width: 100%;
+    height: 404px;
+}
+#hor_separators hr {
+    width: 100%;
     height: 1px;
-    margin: 0 12px;
-    background-color: #ddd;
+    margin: 134px 0;
+    border: 0px solid #eee;
+    background-color: #eee;
 }
 /* Side articles ends */
 #norm_articles {

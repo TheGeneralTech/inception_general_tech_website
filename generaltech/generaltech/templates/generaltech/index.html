@@ -12,62 +12,58 @@
         <img src="{% static 'image/temp_logo.jpg' %}" alt="General Tech" />
     </a>
     <div id="social_links">
-        <a id="facebook_link" href="fix_me">
+        <a id="facebook_link" href="fix_me" title="facebook">
             <svg viewBox="0 0 100 100">
                 <use xlink:href="#icon-facebook"></use>
             </svg>
         </a>
-        <a id="twitter_link" href="fix_me">
+        <a id="twitter_link" href="fix_me" title="twitter">
             <svg viewBox="0 0 100 100">
                 <use xlink:href="#icon-twitter"></use>
             </svg>
         </a>
-        <a id="facebook_link" href="fix_me">
+        <a id="facebook_link" href="fix_me" title="rss">
             <svg viewBox="0 0 100 100">
                 <use xlink:href="#icon-rss"></use>
             </svg>
         </a>
     </div>
+    <p id="date_cont"><b>{{ date }}</b></p>
 </header>
-<a id="main_article_cont" href="{% url 'article' 'article_url' %}">
-    <div id="main_article">
-        <div class="image_cont">
-            <img id="article1_img" src="{% static 'image/placeholder-image.jpg' %}" alt="google stadia" />
-        </div>
-        <span class="curtain"></span>
-        <summary>
-            <h2>This is the title of this article. I want the title to be long for testing purposes</h2><br>
-            <p id="publish_date">Today</p><p> · </p><p id="writer">Mukul Singh</p>
-        </summary>
-    </div>
+<a id="main_article_cont" href="{% url 'article' 'fix_me' %}">
+    <img id="article1_img" src="{% static 'image/placeholder-image.jpg' %}" alt="google stadia" />
+    <span class="curtain"></span>
+    <summary>
+        <h2>This is the title of this article. I want the title to be long for testing purposes.</h2><br>
+        <p id="publish_date">Today</p><p> · </p><p id="writer">Mukul Singh</p>
+    </summary>
 </a>
 <div id="side_articles">
-    <a class="side_article_cont" href="fix_me">
-        <div class="image_cont small_image_cont">
-            <img id="article2_img" src="{% static 'image/placeholder-image.jpg' %}" alt="google stadia" />
-        </div>
+    <div id="hor_separators"><hr><hr></div>
+    <a class="side_article_cont" href="{% url 'article' 'fix_me' %}">
+        <img id="article2_img" src="{% static 'image/placeholder-image.jpg' %}" alt="google stadia" />
         <summary>
-            <h3>This is the title of this article. I want the title to be long for testing purposes</h3><br>
+            <div class="side_article_title">
+                <h3>This is the title of this article. I want the title to be long for testing purposes.</h3><br>
+            </div>
             <p id="publish_date">Today</p><p> · </p><p id="writer">Mukul Singh</p>
         </summary>
     </a>
-    <span class="side_article__separator"></span>
-    <a class="side_article_cont" href="fix_me">
-        <div class="image_cont small_image_cont">
-            <img id="article2_img" src="{% static 'image/placeholder-image.jpg' %}" alt="google stadia" />
-        </div>
+    <a class="side_article_cont" href="{% url 'article' 'fix_me' %}">
+        <img id="article2_img" src="{% static 'image/placeholder-image.jpg' %}" alt="google stadia" />
         <summary>
-            <h3>This is the title of this article. I want the title to be long for testing purposes</h3><br>
+            <div class="side_article_title">
+                <h3>This is the title of this article. I want the title to be long for testing purposes.</h3><br>
+            </div>
             <p id="publish_date">Today</p><p> · </p><p id="writer">Mukul Singh</p>
         </summary>
     </a>
-    <span class="side_article__separator"></span>
-    <a class="side_article_cont" href="fix_me">
-        <div class="image_cont small_image_cont">
-            <img id="article2_img" src="{% static 'image/placeholder-image.jpg' %}" alt="google stadia" />
-        </div>
+    <a class="side_article_cont" href="{% url 'article' 'fix_me' %}">
+        <img id="article2_img" src="{% static 'image/placeholder-image.jpg' %}" alt="google stadia" />
         <summary>
-            <h3>This is the title of this article. I want the title to be long for testing purposes</h3><br>
+            <div class="side_article_title">
+                <h3>This is the title of this article. I want the title to be long for testing purposes.</h3><br>
+            </div>
             <p id="publish_date">Today</p><p> · </p><p id="writer">Mukul Singh</p>
         </summary>
     </a>
