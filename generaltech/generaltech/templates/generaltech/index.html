@@ -7,6 +7,8 @@
 {% endblock %}
 
 {% block content %}
+{% include 'generaltech/symbol-defs.svg' %}
+<div id="main_content">
 <header>
     <a id="logo" href="{% url 'index' %}">
         <img src="{% static 'image/temp_logo.jpg' %}" alt="General Tech" />
@@ -31,7 +33,7 @@
     <p id="date_cont"><b>{{ date }}</b></p>
 </header>
 <a id="main_article_cont" href="{% url 'article' 'fix_me' %}">
-    <img id="article1_img" src="{% static 'image/placeholder-image.jpg' %}" alt="google stadia" />
+    <img id="article1_img" src="{% static 'image/placeholder-image.jpg' %}" alt="fix_me" />
     <span class="curtain"></span>
     <summary>
         <h2>This is the title of this article. I want the title to be long for testing purposes.</h2><br>
@@ -41,39 +43,75 @@
 <div id="side_articles">
     <div id="hor_separators"><hr><hr></div>
     <a class="side_article_cont" href="{% url 'article' 'fix_me' %}">
-        <img id="article2_img" src="{% static 'image/placeholder-image.jpg' %}" alt="google stadia" />
+        <img id="article2_img" src="{% static 'image/placeholder-image.jpg' %}" alt="fix_me" />
         <summary>
             <div class="side_article_title">
-                <h3>This is the title of this article. I want the title to be long for testing purposes.</h3><br>
+                <h4>This is the title of this article. I want the title to be long for testing purposes.</h4><br>
             </div>
             <p id="publish_date">Today</p><p> · </p><p id="writer">Mukul Singh</p>
         </summary>
     </a>
     <a class="side_article_cont" href="{% url 'article' 'fix_me' %}">
-        <img id="article2_img" src="{% static 'image/placeholder-image.jpg' %}" alt="google stadia" />
+        <img id="article2_img" src="{% static 'image/placeholder-image.jpg' %}" alt="fix_me" />
         <summary>
             <div class="side_article_title">
-                <h3>This is the title of this article. I want the title to be long for testing purposes.</h3><br>
+                <h4>This is the title of this article. I want the title to be long for testing purposes.</h4><br>
             </div>
             <p id="publish_date">Today</p><p> · </p><p id="writer">Mukul Singh</p>
         </summary>
     </a>
     <a class="side_article_cont" href="{% url 'article' 'fix_me' %}">
-        <img id="article2_img" src="{% static 'image/placeholder-image.jpg' %}" alt="google stadia" />
+        <img id="article2_img" src="{% static 'image/placeholder-image.jpg' %}" alt="fix_me" />
         <summary>
             <div class="side_article_title">
-                <h3>This is the title of this article. I want the title to be long for testing purposes.</h3><br>
+                <h4>This is the title of this article. I want the title to be long for testing purposes.</h4><br>
             </div>
             <p id="publish_date">Today</p><p> · </p><p id="writer">Mukul Singh</p>
         </summary>
     </a>
 </div>
-<div id="norm_articles">
-    <article></article>
-    <article></article>
-    <article></article>
-    <article></article>
-    <article></article>
-
+</div>
+<div id="more_content_cont">
+<div id="more_content">
+    <div id="side_panel">
+        <a href="fix_me">Tag One</a>
+        <a href="fix_me">Tag Two</a>
+        <a href="fix_me">Tag Three</a>
+        <a href="fix_me">Tag Four</a>
+        <a href="fix_me">Tag Five</a>
+        <a href="fix_me">Tag Six</a>
+    </div>
+    <div id="norm_articles">
+        <a class="norm_article_cont" href="{% url 'article' 'fix_me' %}">
+            <img class="norm_article_img" src="{% static 'image/placeholder-image.jpg' %}" alt="fix_me" />
+            <summary>
+                <h4>This is the title of this article. I want the title to be long for testing purposes.</h4>
+                <p id="publish_date">Today</p><p> · </p><p id="writer">Mukul Singh</p>
+            </summary>
+        </a>
+        <a class="norm_article_cont" href="{% url 'article' 'fix_me' %}">
+                <img class="norm_article_img" src="{% static 'image/placeholder-image.jpg' %}" alt="fix_me" />
+                <summary>
+                    <h4>This is the title of this article. I want the title to be long for testing purposes.</h4>
+                    <p id="publish_date">Today</p><p> · </p><p id="writer">Mukul Singh</p>
+                </summary>
+            </a>
+            <a class="norm_article_cont" href="{% url 'article' 'fix_me' %}">
+                    <img class="norm_article_img" src="{% static 'image/placeholder-image.jpg' %}" alt="fix_me" />
+                    <summary>
+                        <h4>This is the title of this article. I want the title to be long for testing purposes.</h4>
+                        <p id="publish_date">Today</p><p> · </p><p id="writer">Mukul Singh</p>
+                    </summary>
+                </a>
+                <a class="norm_article_cont" href="{% url 'article' 'fix_me' %}">
+                        <img class="norm_article_img" src="{% static 'image/placeholder-image.jpg' %}" alt="fix_me" />
+                        <summary>
+                            <h4>This is the title of this article. I want the title to be long for testing purposes.</h4>
+                            <p id="publish_date">Today</p><p> · </p><p id="writer">Mukul Singh</p>
+                        </summary>
+                    </a>
+    </div>
+    <div id="side_advert"></div>
+</div>
 </div>
 {% endblock %}
