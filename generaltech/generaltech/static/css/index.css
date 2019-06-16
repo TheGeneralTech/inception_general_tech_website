@@ -2,15 +2,16 @@
     width: 1200px;
     height: auto;
     margin: auto;
-    padding: 0 8px 16px;
+    padding: 0 16px 16px;
     display: grid;
     grid-gap: 16px;
-    grid-template-columns: 720px 448px;
+    grid-template-columns: 720px 432px;
 }
 #more_content_cont {
     width: 100%;
     height: auto;
-    background-color: #f3f3f3;
+    background-color: #fcfcfc;
+    border-top: #f9f9f9 solid 1px;
 }
 #more_content {
     width: 1200px;
@@ -30,11 +31,19 @@ header {
     grid-column-start: 1;
     grid-column-end: 3;
 }
-#social_links {
-    right: 0;
-    bottom: 0;
+#date_social_cont {
+    width: 100%;
+    height: 24px;
     position: absolute;
+    bottom: 0;
     margin: 4px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+#social_links {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 #social_links a svg {
     width: 16px;
@@ -42,13 +51,12 @@ header {
     margin: 4px;
     float: left;
 }
-#date_cont {
+#date_today {
     position: absolute;
-    left: 0;
     bottom: 0;
-    margin: 8px;
+    left: 0;
+    padding: 2px;
     font-size: .8em;
-    display: inline;
 }
 
 #logo {
@@ -62,7 +70,7 @@ header {
 /* Main article */
 #main_article_cont {
     width: 100%;
-    height: 404px;
+    height: 100%;
     display: block;
     position: relative;
     overflow: hidden;
@@ -102,7 +110,7 @@ header {
 /* Side articles */
 #side_articles {
     width: 100%;
-    height: 404px;
+    height: auto;
     background-color: #fff;
     border: #eee solid 1px;
     border-radius: 5px;
@@ -110,7 +118,7 @@ header {
 }
 .side_article_cont {
     width: 100%;
-    height: 134px;
+    height: auto;
     display: block;
     color: #000;
     position: relative;
@@ -123,13 +131,12 @@ header {
     border: #ccc solid 0;
     border-radius: 5px;
     background-color: #999;
-    float: left;
 }
 .side_article_cont h4, p {
     display: inline;
 }
 .side_article_title {
-    max-height: 92px;
+    max-height: 150px;
     overflow: hidden;
 }
 .side_article_cont p {
@@ -137,11 +144,10 @@ header {
 }
 .side_article_cont summary {
     width: 100%;
-    height: 134px;
-    float: left;
+    height: auto;
+    top: 0;
     position: absolute;
     padding: 12px 12px 12px 134px;
-    box-sizing: border-box;
     overflow: hidden;
 }
 #hor_separators {
@@ -166,9 +172,12 @@ header {
     display: block;
     background-color: #fff;
     color: #000;
+    border: #eee solid 1px;
+    border-radius: 5px;
+    overflow: hidden;
 }
 #norm_articles {
-    width: 100%;
+    width: 716px;
     height: auto;
     grid-column-start: 2;
     grid-column-end: 3;
@@ -201,14 +210,92 @@ header {
     text-decoration: none;
     clear: both;
     float: right;
+    display: inline-block;
     padding: 6px 8px;
     margin: 6px;
     background-color: #fff;
     border: #ccc solid 1px;
     border-radius: 5px; 
 }
-#side_advert {
+#advert_side {
     width: 100%;
     height: 100%;
     background-color: #ddd;
 }
+
+/* Responsive config */
+
+/* For tablets */
+@media only screen and (max-width: 1024px) {
+    #date_social_cont {
+        position: relative;
+    }
+    #main_content {
+        width: 100%;
+        padding: 0 1.5vw 1.5vw;
+        grid-gap: 1.5vw;
+        grid-template-columns: 49.5vw 46vw;
+    }
+    #more_content {
+        width: 100%;
+        padding: 1.5vw;
+        grid-gap: 1.5vw;
+        grid-template-rows: auto auto 34px;
+        grid-template-columns: 100%;
+    }
+    #norm_articles {
+        width: 716px;
+        margin: auto;
+        height: auto;
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+    #more_content {
+        padding: 0;
+    }
+    #side_panel {
+        padding: 0 16px;
+        background-color: #ccc;
+        overflow-x: scroll;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+    #side_panel a {
+        display: inline-block;
+        margin: 12px 6px;
+        clear: none;
+        float: none;
+    }
+}
+/* For Tablets ends */
+/* For mobiles */
+@media only screen and (max-width: 600px) {
+    #main_content {
+        width: 100%;
+        padding: 0 2vw 2vw;
+        grid-gap: 2vw;
+        grid-template-columns: 100%;
+    }
+    header {
+        grid-column-end: 2;
+    }
+    #main_article_cont {
+        height: 404px;
+    }
+    #side_panel {
+        padding: 0 16px;
+        background-color: #ccc;
+        overflow-x: scroll;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+    #side_panel a {
+        display: inline-block;
+        margin: 12px 6px;
+        clear: none;
+        float: none;
+    }
+}
+/* For mobiles ends */
+
+/* Responsive config ends */

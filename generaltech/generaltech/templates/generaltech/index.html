@@ -13,24 +13,26 @@
     <a id="logo" href="{% url 'index' %}">
         <img src="{% static 'image/temp_logo.jpg' %}" alt="General Tech" />
     </a>
-    <div id="social_links">
-        <a id="facebook_link" href="fix_me" title="facebook">
-            <svg viewBox="0 0 100 100">
-                <use xlink:href="#icon-facebook"></use>
-            </svg>
-        </a>
-        <a id="twitter_link" href="fix_me" title="twitter">
-            <svg viewBox="0 0 100 100">
-                <use xlink:href="#icon-twitter"></use>
-            </svg>
-        </a>
-        <a id="facebook_link" href="fix_me" title="rss">
-            <svg viewBox="0 0 100 100">
-                <use xlink:href="#icon-rss"></use>
-            </svg>
-        </a>
+    <div id="date_social_cont">
+        <p id="date_today">{{ date }} </p>
+        <div id="social_links">
+            <a id="facebook_link" href="fix_me" title="facebook">
+                <svg viewBox="0 0 100 100">
+                    <use xlink:href="#icon-facebook"></use>
+                </svg>
+            </a>
+            <a id="twitter_link" href="fix_me" title="twitter">
+                <svg viewBox="0 0 100 100">
+                    <use xlink:href="#icon-twitter"></use>
+                </svg>
+            </a>
+            <a id="facebook_link" href="fix_me" title="rss">
+                <svg viewBox="0 0 100 100">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            </a>
+        </div>
     </div>
-    <p id="date_cont"><b>{{ date }}</b></p>
 </header>
 <a id="main_article_cont" href="{% url 'article' 'fix_me' %}">
     <img id="article1_img" src="{% static 'image/placeholder-image.jpg' %}" alt="fix_me" />
@@ -80,6 +82,12 @@
         <a href="fix_me">Tag Four</a>
         <a href="fix_me">Tag Five</a>
         <a href="fix_me">Tag Six</a>
+        <a href="fix_me">Tag One</a>
+        <a href="fix_me">Tag Two</a>
+        <a href="fix_me">Tag Three</a>
+        <a href="fix_me">Tag Four</a>
+        <a href="fix_me">Tag Five</a>
+        <a href="fix_me">Tag Six</a>
     </div>
     <div id="norm_articles">
         <a class="norm_article_cont" href="{% url 'article' 'fix_me' %}">
@@ -111,7 +119,7 @@
                         </summary>
                     </a>
     </div>
-    <div id="side_advert"></div>
+    <div id="advert_side"></div>
 </div>
 </div>
 {% endblock %}
