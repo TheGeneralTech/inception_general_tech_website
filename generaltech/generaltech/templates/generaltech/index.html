@@ -43,7 +43,16 @@
     </summary>
 </a>
 <div id="side_articles">
-    <div id="hor_separators"><hr><hr></div>
+    <a class="side_article_cont" href="{% url 'article' 'fix_me' %}">
+        <img id="article2_img" src="{% static 'image/placeholder-image.jpg' %}" alt="fix_me" />
+        <summary>
+            <div class="side_article_title">
+                <h4>This is the title of this article. I want the title to be long for testing purposes. This is the title of this article. I want the title to be long for testing purposes.</h4><br>
+            </div>
+            <p id="publish_date">Today</p><p> · </p><p id="writer">Mukul Singh</p>
+        </summary>
+    </a>
+    <hr>
     <a class="side_article_cont" href="{% url 'article' 'fix_me' %}">
         <img id="article2_img" src="{% static 'image/placeholder-image.jpg' %}" alt="fix_me" />
         <summary>
@@ -53,15 +62,7 @@
             <p id="publish_date">Today</p><p> · </p><p id="writer">Mukul Singh</p>
         </summary>
     </a>
-    <a class="side_article_cont" href="{% url 'article' 'fix_me' %}">
-        <img id="article2_img" src="{% static 'image/placeholder-image.jpg' %}" alt="fix_me" />
-        <summary>
-            <div class="side_article_title">
-                <h4>This is the title of this article. I want the title to be long for testing purposes.</h4><br>
-            </div>
-            <p id="publish_date">Today</p><p> · </p><p id="writer">Mukul Singh</p>
-        </summary>
-    </a>
+    <hr>
     <a class="side_article_cont" href="{% url 'article' 'fix_me' %}">
         <img id="article2_img" src="{% static 'image/placeholder-image.jpg' %}" alt="fix_me" />
         <summary>
@@ -78,7 +79,7 @@
     <div id="side_panel">
         <a href="fix_me">Tag One</a>
         <a href="fix_me">Tag Two</a>
-        <a href="fix_me">Tag Three</a>
+        <a href="fix_me">Tag Three Three</a>
         <a href="fix_me">Tag Four</a>
         <a href="fix_me">Tag Five</a>
         <a href="fix_me">Tag Six</a>
@@ -100,7 +101,7 @@
         <a class="norm_article_cont" href="{% url 'article' 'fix_me' %}">
                 <img class="norm_article_img" src="{% static 'image/placeholder-image.jpg' %}" alt="fix_me" />
                 <summary>
-                    <h4>This is the title of this article. I want the title to be long for testing purposes.</h4>
+                    <h4>This is the title of this article. I want the title to be long for testing purposes. This is the title of this article. I want the title to be long for testing purposes.</h4>
                     <p id="publish_date">Today</p><p> · </p><p id="writer">Mukul Singh</p>
                 </summary>
             </a>

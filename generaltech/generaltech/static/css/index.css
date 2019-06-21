@@ -1,11 +1,12 @@
 #main_content {
-    width: 1200px;
+    width: 100%;
+    max-width: 1200px;
     height: auto;
     margin: auto;
-    padding: 0 16px 16px;
-    display: grid;
-    grid-gap: 16px;
-    grid-template-columns: 720px 432px;
+    padding: 0 12px 12px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 #more_content_cont {
     width: 100%;
@@ -14,13 +15,12 @@
     border-top: #f9f9f9 solid 1px;
 }
 #more_content {
-    width: 1200px;
+    width: 100%;
+    max-width: 1200px;
     height: auto;
     margin: auto;
-    padding: 16px;
-    display: grid;
-    grid-gap: 16px;
-    grid-template-columns: 210px 716px 210px;
+    display: flex;
+    flex-direction: column;
 }
 /* header */
 header {
@@ -28,17 +28,14 @@ header {
     border: #eee solid;
     border-width: 0 0 1px;
     position: relative;
-    grid-column-start: 1;
-    grid-column-end: 3;
+    flex: 0 0 100%;
 }
 #date_social_cont {
     width: 100%;
     height: 24px;
-    position: absolute;
+    position: relative;
     bottom: 0;
-    margin: 4px;
-    display: grid;
-    grid-template-columns: 50% 50%;
+    padding: 4px;
 }
 #social_links {
     position: absolute;
@@ -60,22 +57,27 @@ header {
 }
 
 #logo {
-    width: 460px;
+    width: 100%;
+    max-width: 460px;
     display: block;
     margin: auto;
     position: relative;
+}
+#logo img {
+    width: 100%;
 }
 /* header ends */
 
 /* Main article */
 #main_article_cont {
     width: 100%;
-    height: 100%;
+    min-height: 405px;
     display: block;
     position: relative;
     overflow: hidden;
     border: #ccc solid 0;
-    border-radius: 5px; 
+    border-radius: 5px;
+    margin-top: 12px;
 }
 #main_article_cont img {
     width: 100%;
@@ -111,6 +113,8 @@ header {
 #side_articles {
     width: 100%;
     height: auto;
+    padding: 12px;
+    margin-top: 12px;
     background-color: #fff;
     border: #eee solid 1px;
     border-radius: 5px;
@@ -119,15 +123,15 @@ header {
 .side_article_cont {
     width: 100%;
     height: auto;
-    display: block;
     color: #000;
-    position: relative;
+    display: flex;
+    flex-direction: row;
 }
 .side_article_cont img {
     width: 110px;
     height: 110px;
+    margin-right: 12px;
     object-fit: cover;
-    margin: 12px;
     border: #ccc solid 0;
     border-radius: 5px;
     background-color: #999;
@@ -142,30 +146,24 @@ header {
 .side_article_cont p {
     font-size: .8em;
 }
-.side_article_cont summary {
-    width: 100%;
-    height: auto;
-    top: 0;
-    position: absolute;
-    padding: 12px 12px 12px 134px;
-    overflow: hidden;
-}
-#hor_separators {
-    position: absolute;
-    padding: 0 12px;
-    width: 100%;
-    height: 404px;
-}
-#hor_separators hr {
+#side_articles hr {
     width: 100%;
     height: 1px;
-    margin: 134px 0;
+    margin: 12px 0;
     border: 0px solid #eee;
     background-color: #eee;
 }
 /* Side articles ends */
 
 /* Normal articles */
+#norm_articles {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 6px;
+    justify-content: center;
+}
 .norm_article_cont {
     width: 100%;
     height: auto;
@@ -175,15 +173,9 @@ header {
     border: #eee solid 1px;
     border-radius: 5px;
     overflow: hidden;
-}
-#norm_articles {
-    width: 716px;
-    height: auto;
-    grid-column-start: 2;
-    grid-column-end: 3;
-    display: grid;
-    grid-gap: 16px;
-    grid-template-columns: 350px 350px;
+    margin: 6px;
+    flex: 1 1 250px;
+    max-width: 350px;
 }
 .norm_article_img {
     width: 100%;
@@ -203,99 +195,83 @@ header {
 #side_panel {
     width: 100%;
     height: 100%;
-    position: sticky;
+    padding: 0 16px;
+    background-color: #ccc;
+    overflow-x: scroll;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
 }
 #side_panel a {
     color: #000;
     text-decoration: none;
-    clear: both;
-    float: right;
-    display: inline-block;
     padding: 6px 8px;
-    margin: 6px;
     background-color: #fff;
     border: #ccc solid 1px;
-    border-radius: 5px; 
+    border-radius: 5px;
+    display: inline-block;
+    margin: 12px 6px;
 }
 #advert_side {
     width: 100%;
-    height: 100%;
+    height: 500px;
     background-color: #ddd;
+    display: none;
 }
 
 /* Responsive config */
 
-/* For tablets */
-@media only screen and (max-width: 1024px) {
-    #date_social_cont {
-        position: relative;
-    }
-    #main_content {
-        width: 100%;
-        padding: 0 1.5vw 1.5vw;
-        grid-gap: 1.5vw;
-        grid-template-columns: 49.5vw 46vw;
-    }
+@media only screen and (min-width: 550px) {
     #more_content {
-        width: 100%;
-        padding: 1.5vw;
-        grid-gap: 1.5vw;
-        grid-template-rows: auto auto 34px;
-        grid-template-columns: 100%;
+        flex-direction: row;
+        align-items: stretch;
+    }
+    #side_panel {
+        flex: 0 1 180px;
+        display: block;
+        margin: 6px 0 12px 12px;
+        padding: 6px 0 0;
+        background-color: unset;
+        overflow: auto;
+        white-space: normal;
+    }
+    #side_panel a {
+        clear: both;
+        float: right;
+        margin: 6px;
     }
     #norm_articles {
-        width: 716px;
-        margin: auto;
-        height: auto;
-        grid-column-start: 1;
-        grid-column-end: 2;
-    }
-    #more_content {
-        padding: 0;
-    }
-    #side_panel {
-        padding: 0 16px;
-        background-color: #ccc;
-        overflow-x: scroll;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-    }
-    #side_panel a {
-        display: inline-block;
-        margin: 12px 6px;
-        clear: none;
-        float: none;
+        flex: 1 1 400px;
     }
 }
-/* For Tablets ends */
-/* For mobiles */
-@media only screen and (max-width: 600px) {
-    #main_content {
-        width: 100%;
-        padding: 0 2vw 2vw;
-        grid-gap: 2vw;
-        grid-template-columns: 100%;
-    }
-    header {
-        grid-column-end: 2;
+
+@media only screen and (min-width: 650px) {
+    #main_content, #side_articles {
+        align-items: stretch;
     }
     #main_article_cont {
-        height: 404px;
+        flex: 3 1 300px;
+        margin-right: 12px;
     }
-    #side_panel {
-        padding: 0 16px;
-        background-color: #ccc;
-        overflow-x: scroll;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-    }
-    #side_panel a {
-        display: inline-block;
-        margin: 12px 6px;
-        clear: none;
-        float: none;
+    #side_articles {
+        flex: 1 1 300px;
     }
 }
-/* For mobiles ends */
+
+@media only screen and (min-width: 800px) {
+    #date_social_cont {
+        position: absolute;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    #advert_side {
+        display: block;
+        flex: 0 0 200px;
+        margin: 12px 12px 12px 0;
+        /* position: sticky;
+        position: -webkit-sticky;
+        top: 0; */
+    }
+}
 
 /* Responsive config ends */
