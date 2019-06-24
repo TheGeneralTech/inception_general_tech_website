@@ -11,8 +11,8 @@
 #more_content_background {
     width: 100%;
     height: auto;
-    background-color: #fcfcfc;
-    border-top: #f9f9f9 solid 1px;
+    background-color: #f5f5fc;
+    border-top: #eee solid 1px;
 }
 #more_content {
     width: 100%;
@@ -177,6 +177,8 @@ header {
 }
 .norm_article_img {
     width: 100%;
+    max-height: 197px;
+    object-fit: cover;
 }
 .norm_article_cont summary {
     padding: 12px;
@@ -219,27 +221,7 @@ header {
 /* Responsive config */
 
 @media only screen and (min-width: 550px) {
-    #more_content {
-        flex-direction: row;
-        align-items: stretch;
-    }
-    #side_panel {
-        flex: 0 1 180px;
-        display: block;
-        margin: 6px 0 12px 12px;
-        padding: 6px 0 0;
-        background-color: unset;
-        overflow: auto;
-        white-space: normal;
-    }
-    #side_panel a {
-        clear: both;
-        float: right;
-        margin: 6px;
-    }
-    #norm_articles {
-        flex: 1 1 400px;
-    }
+    /* fixe_me */
 }
 
 @media only screen and (min-width: 650px) {
@@ -261,6 +243,27 @@ header {
     }
     #social_links a svg {
         margin: 4px;
+    }
+    #more_content {
+        flex-direction: row;
+        align-items: stretch;
+    }
+    #side_panel {
+        flex: 0 1 180px;
+        display: block;
+        margin: 6px 0 12px 12px;
+        padding: 6px 0 0;
+        background-color: unset;
+        overflow: auto;
+        white-space: normal;
+    }
+    #side_panel a {
+        clear: both;
+        float: right;
+        margin: 6px;
+    }
+    #norm_articles {
+        flex: 1 1 400px;
     }
 }
 
