@@ -8,7 +8,7 @@
     flex-wrap: wrap;
     flex-direction: row;
 }
-#more_content_cont {
+#more_content_background {
     width: 100%;
     height: auto;
     background-color: #fcfcfc;
@@ -35,24 +35,24 @@ header {
     height: 24px;
     position: relative;
     bottom: 0;
-    padding: 4px;
 }
 #social_links {
     position: absolute;
     bottom: 0;
     right: 0;
+    padding: 2px;
 }
 #social_links a svg {
     width: 16px;
     height: 16px;
-    margin: 4px;
+    margin: 4px 8px;
     float: left;
 }
 #date_today {
     position: absolute;
     bottom: 0;
     left: 0;
-    padding: 2px;
+    padding: 4px;
     font-size: .8em;
 }
 
@@ -124,6 +124,7 @@ header {
     width: 100%;
     height: auto;
     color: #000;
+    text-decoration: none;
     display: flex;
     flex-direction: row;
 }
@@ -138,10 +139,6 @@ header {
 }
 .side_article_cont h4, p {
     display: inline;
-}
-.side_article_title {
-    max-height: 150px;
-    overflow: hidden;
 }
 .side_article_cont p {
     font-size: .8em;
@@ -168,6 +165,7 @@ header {
     width: 100%;
     height: auto;
     display: block;
+    text-decoration: none;
     background-color: #fff;
     color: #000;
     border: #eee solid 1px;
@@ -204,7 +202,7 @@ header {
 #side_panel a {
     color: #000;
     text-decoration: none;
-    padding: 6px 8px;
+    padding: 4px 8px;
     background-color: #fff;
     border: #ccc solid 1px;
     border-radius: 5px;
@@ -260,6 +258,9 @@ header {
 @media only screen and (min-width: 800px) {
     #date_social_cont {
         position: absolute;
+    }
+    #social_links a svg {
+        margin: 4px;
     }
 }
 

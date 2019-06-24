@@ -17,17 +17,17 @@
         <p id="date_today">{{ date }} </p>
         <div id="social_links">
             <a id="facebook_link" href="fix_me" title="facebook">
-                <svg viewBox="0 0 100 100">
+                <svg viewBox="0 0 100 100" width="16" height="16">
                     <use xlink:href="#icon-facebook"></use>
                 </svg>
             </a>
             <a id="twitter_link" href="fix_me" title="twitter">
-                <svg viewBox="0 0 100 100">
+                <svg viewBox="0 0 100 100" width="16" height="16">
                     <use xlink:href="#icon-twitter"></use>
                 </svg>
             </a>
             <a id="facebook_link" href="fix_me" title="rss">
-                <svg viewBox="0 0 100 100">
+                <svg viewBox="0 0 100 100" width="16" height="16">
                     <use xlink:href="#icon-rss"></use>
                 </svg>
             </a>
@@ -46,9 +46,7 @@
     <a class="side_article_cont" href="{% url 'article' 'fix_me' %}">
         <img id="article2_img" src="{% static 'image/placeholder-image.jpg' %}" alt="fix_me" />
         <summary>
-            <div class="side_article_title">
-                <h4>This is the title of this article. I want the title to be long for testing purposes. This is the title of this article. I want the title to be long for testing purposes.</h4><br>
-            </div>
+            <h4>This is the title of this article. I want the title to be long for testing purposes. This is the title of this article. I want the title to be long for testing purposes.</h4><br>
             <p id="publish_date">Today</p><p> · </p><p id="writer">Mukul Singh</p>
         </summary>
     </a>
@@ -56,9 +54,7 @@
     <a class="side_article_cont" href="{% url 'article' 'fix_me' %}">
         <img id="article2_img" src="{% static 'image/placeholder-image.jpg' %}" alt="fix_me" />
         <summary>
-            <div class="side_article_title">
-                <h4>This is the title of this article. I want the title to be long for testing purposes.</h4><br>
-            </div>
+            <h4>This is the title of this article. I want the title to be long for testing purposes.</h4><br>
             <p id="publish_date">Today</p><p> · </p><p id="writer">Mukul Singh</p>
         </summary>
     </a>
@@ -66,15 +62,13 @@
     <a class="side_article_cont" href="{% url 'article' 'fix_me' %}">
         <img id="article2_img" src="{% static 'image/placeholder-image.jpg' %}" alt="fix_me" />
         <summary>
-            <div class="side_article_title">
-                <h4>This is the title of this article. I want the title to be long for testing purposes.</h4><br>
-            </div>
+            <h4>This is the title of this article. I want the title to be long for testing purposes.</h4><br>
             <p id="publish_date">Today</p><p> · </p><p id="writer">Mukul Singh</p>
         </summary>
     </a>
 </div>
 </div>
-<div id="more_content_cont">
+<div id="more_content_background">
 <div id="more_content">
     <div id="side_panel">
         <a href="fix_me">Tag One</a>
@@ -123,4 +117,7 @@
     <div id="advert_side"></div>
 </div>
 </div>
+<footer>
+    
+</footer>
 {% endblock %}
