@@ -25,43 +25,45 @@
 /* header */
 header {
     width: 100%;
-    border: #eee solid;
-    border-width: 0 0 1px;
+    padding: 0 12px;
+}
+#header_content {
+    width: 100%;
+    max-width: 1176px;
+    margin: auto;
     position: relative;
     flex: 0 0 100%;
+    border: #eee solid;
+    border-width: 0 0 1px;
 }
 #date_social_cont {
-    width: 100%;
-    height: 24px;
     position: relative;
     bottom: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 #social_links {
-    position: absolute;
-    bottom: 0;
-    right: 0;
     padding: 2px;
 }
 #social_links a svg {
     width: 16px;
     height: 16px;
-    margin: 4px 8px;
+    margin: 4px 0 4px 16px;
     float: left;
 }
 #date_today {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding: 4px;
+    padding: 2px;
     font-size: .8em;
 }
 
 #logo {
     width: 100%;
-    max-width: 460px;
+    max-width: 500px;
     display: block;
-    margin: auto;
-    position: relative;
+    margin: 12px auto 6px;
 }
 #logo img {
     width: 100%;
@@ -90,7 +92,7 @@ header {
     width: 100%;
     height: 100%;
     display: block;
-    background-color: rgba(0, 0, 0, .4);
+    background-color: rgba(0, 0, 0, .3);
 }
 #main_article_cont summary {
     width: 100%;
@@ -113,20 +115,20 @@ header {
 #side_articles {
     width: 100%;
     height: auto;
-    padding: 12px;
     margin-top: 12px;
-    background-color: #fff;
     border: #eee solid 1px;
     border-radius: 5px;
     position: relative;
 }
 .side_article_cont {
     width: 100%;
+    padding: 12px;
     height: auto;
     color: #000;
     text-decoration: none;
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 .side_article_cont img {
     width: 110px;
@@ -143,10 +145,14 @@ header {
 .side_article_cont p {
     font-size: .8em;
 }
+#side_articles footer {
+    width: 100%;
+    padding: 0 12px;
+}
 #side_articles hr {
     width: 100%;
     height: 1px;
-    margin: 12px 0;
+    margin: 0;
     border: 0px solid #eee;
     background-color: #eee;
 }
@@ -238,8 +244,8 @@ header {
 }
 
 @media only screen and (min-width: 800px) {
-    #date_social_cont {
-        position: absolute;
+    #logo {
+        margin: 18px auto 0;
     }
     #social_links a svg {
         margin: 4px;

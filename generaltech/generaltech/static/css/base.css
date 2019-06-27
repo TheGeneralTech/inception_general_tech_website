@@ -7,11 +7,14 @@ body {
     box-sizing: border-box;
 } 
 
-h1, h2, h3, h4, h5, h6, p, a {
+h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
+}
+p, a {
+    font-family: Verdana, Geneva, sans-serif;
 }
 #advert_top {
     width: 100%;
-    height: auto;
+    height: 6em;
     background-color: #eee;
 }
