@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    {% block stylesheets %}{% endblock %}
+    {% block scripts %}{% endblock %}
+    <title>{% block title %}General Tech{% endblock %}</title>
+    <meta name="description" content="{% block description %}{% endblock %}" >
+    <meta name="keywords" content="{% block keywords %}{% endblock %}" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div id="advert_top"></div>
+    {% block content %}{% endblock %}
+</body>
+</html>

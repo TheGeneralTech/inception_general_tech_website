@@ -1,0 +1,93 @@
+{% extends "generaltech/base.html" %}
+{% load static %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap">
+{% endblock %}
+
+{% block content %}
+{% include 'generaltech/symbol-defs.svg' %}
+<header>
+    <div id="header_content">
+        <a id="logo" href="{% url 'index' %}">
+            <img src="{% static 'image/temp_logo.png' %}" alt="General Tech" />
+        </a>
+        <div id="date_social_cont">
+            <p id="date_today">{{ date }} </p>
+            <div id="social_links">
+                <a id="facebook_link" href="fix_me" title="facebook">
+                    <svg viewBox="0 0 100 100" width="16" height="16">
+                        <use xlink:href="#icon-facebook"></use>
+                    </svg>
+                </a>
+                <a id="twitter_link" href="fix_me" title="twitter">
+                    <svg viewBox="0 0 100 100" width="16" height="16">
+                        <use xlink:href="#icon-twitter"></use>
+                    </svg>
+                </a>
+                <a id="facebook_link" href="fix_me" title="rss">
+                    <svg viewBox="0 0 100 100" width="16" height="16">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+<div id="main_content">
+<a id="main_article_cont" href="{% url 'article' 'fix_me' %}">
+    <img id="article1_img" src="{{ main_article.titleImage }}" alt="fix_me" />
+    <span class="curtain"></span>
+    <summary>
+        <h2>{{ main_article.title }}</h2><br>
+        <p id="writer">Mukul Singh</p><p> · </p><p id="publish_date">{{ main_article.created_on }}</p>
+    </summary>
+</a>
+<div id="side_articles">
+    {% for post in featured_posts %}
+        <a class="side_article_cont" href="{% url 'article' post.url %}">
+            <img id="article2_img" src="{{ post.titleImage }}" alt="fix_me" />
+            <summary>
+                <h4>{{ post.title }}</h4><br>
+                <p id="writer">Mukul Singh</p><p> · </p><p id="publish_date">{{ post.created_on }}</p>
+            </summary>
+        </a>
+        {% if not forloop.last %}<footer><hr></footer>{% endif %}
+    {% endfor %}
+</div>
+</div>
+<div id="more_content_background">
+<div id="more_content">
+    <div id="side_panel">
+        <a href="fix_me">Tag One</a>
+        <a href="fix_me">Tag Two</a>
+        <a href="fix_me">Tag Three Three</a>
+        <a href="fix_me">Tag Four</a>
+        <a href="fix_me">Tag Five</a>
+        <a href="fix_me">Tag Six</a>
+        <a href="fix_me">Tag One</a>
+        <a href="fix_me">Tag Two</a>
+        <a href="fix_me">Tag Three</a>
+        <a href="fix_me">Tag Four</a>
+        <a href="fix_me">Tag Five</a>
+        <a href="fix_me">Tag Six</a>
+    </div>
+    <div id="norm_articles">
+        {% for post in posts %}
+            <a class="norm_article_cont" href="{% url 'article' post.url %}">
+                <img class="norm_article_img" src="{{ post.titleImage }}" alt="fix_me" />
+                <summary>
+                    <h4>{{ post.title }}</h4>
+                    <p id="writer">Mukul Singh</p><p> · </p><p id="publish_date">{{ post.created_on }}</p>
+                </summary>
+            </a>
+        {% endfor %}
+    </div>
+    <div id="advert_side"></div>
+</div>
+</div>
+<footer>
+    
+</footer>
+{% endblock %}
