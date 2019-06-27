@@ -51,7 +51,7 @@ header {
 #social_links a svg {
     width: 16px;
     height: 16px;
-    margin: 4px 0 4px 16px;
+    margin: 4px 4px 4px 16px;
     float: left;
 }
 #date_today {
@@ -163,31 +163,30 @@ header {
     width: 100%;
     height: auto;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     padding: 6px;
-    justify-content: center;
 }
 .norm_article_cont {
+    flex: 1 1 auto;
     width: 100%;
-    height: auto;
-    display: block;
-    text-decoration: none;
-    background-color: #fff;
-    color: #000;
-    border: #eee solid 1px;
-    border-radius: 5px;
-    overflow: hidden;
+    max-width: 600px;
     margin: 6px;
-    flex: 1 1 250px;
-    max-width: 350px;
+    padding: 6px;
+    height: auto;
+    color: #000;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 .norm_article_img {
-    width: 100%;
-    max-height: 197px;
+    width: 110px;
+    height: 110px;
+    margin-right: 12px;
     object-fit: cover;
-}
-.norm_article_cont summary {
-    padding: 12px;
+    border: #ccc solid 0;
+    border-radius: 5px;
+    background-color: #999;
 }
 .norm_article_cont summary h4, p {
     margin: 0;
@@ -227,7 +226,27 @@ header {
 /* Responsive config */
 
 @media only screen and (min-width: 550px) {
-    /* fixe_me */
+    #more_content {
+        flex-direction: row;
+        align-items: stretch;
+    }
+    #side_panel {
+        flex: 0 1 180px;
+        display: block;
+        margin: 6px 0 12px 12px;
+        padding: 6px 0 0;
+        background-color: unset;
+        overflow: auto;
+        white-space: normal;
+    }
+    #side_panel a {
+        clear: both;
+        float: right;
+        margin: 6px;
+    }
+    #norm_articles {
+        flex: 1 1 600px;
+    }
 }
 
 @media only screen and (min-width: 650px) {
@@ -250,34 +269,13 @@ header {
     #social_links a svg {
         margin: 4px;
     }
-    #more_content {
-        flex-direction: row;
-        align-items: stretch;
-    }
-    #side_panel {
-        flex: 0 1 180px;
-        display: block;
-        margin: 6px 0 12px 12px;
-        padding: 6px 0 0;
-        background-color: unset;
-        overflow: auto;
-        white-space: normal;
-    }
-    #side_panel a {
-        clear: both;
-        float: right;
-        margin: 6px;
-    }
-    #norm_articles {
-        flex: 1 1 400px;
-    }
 }
 
 @media only screen and (min-width: 1000px) {
     #advert_side {
         display: block;
-        flex: 0 0 200px;
-        margin: 12px 12px 12px 0;
+        flex: 1 1 300px;
+        margin: 12px;
         /* position: sticky;
         position: -webkit-sticky;
         top: 0; */
