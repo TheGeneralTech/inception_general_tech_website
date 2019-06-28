@@ -2,4 +2,7 @@
 venv/*
 
 # Python temp files
-generaltech/generaltech/__pycache__/*
+generaltech/__pycache__/*
+
+#VSCode files
+.vscode/*
