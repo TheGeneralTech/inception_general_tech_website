@@ -5,9 +5,10 @@ import datetime
 import requests
 from requests.exceptions import HTTPError
 
+
 def index(request):
     date = getDate()
-    context = { 'date': date, }
+    context = {'date': date, }
     try:
         response = requests.get(
             'https://api.pinkadda.com/v1/posts/published',
@@ -28,28 +29,34 @@ def index(request):
         response_dict = response.json()
         posts = response_dict['posts']
         posts = list(map(formatPost, posts))
-        posts = posts[3:] #fix_me remove this later
+        posts = posts[3:]  # fix_me remove this later
         featured_posts = response_dict['featured']
         featured_posts = list(map(formatPost, featured_posts))
-        main_article = featured_posts[0] #fix_me after main article post type is defined in the api
+        # fix_me after main article post type is defined in the api
+        main_article = featured_posts[0]
         context['posts'] = posts
         context['featured_posts'] = featured_posts
         context['main_article'] = main_article
     return render(request, 'generaltech/index.html', context)
 
+
 def article(request, article_id):
     raise Http404("Article not found")
 
+
 def writer(request, writer_id):
     raise Http404("Article not found")
+
 
 def getDate():
     d = datetime.datetime.now()
     return d.strftime("%A, %d %b %Y")
 
+
 def formatPost(post):
     post['created_on'] = formatCreationDate(post['created_on'])
     return post
+
 
 def formatCreationDate(timestamp):
     # Timestamp coverted into miliseconds for compatibility
