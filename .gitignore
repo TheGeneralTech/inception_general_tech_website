@@ -1,5 +1,9 @@
 # Python temp files
 generaltech/__pycache__/*
 
+<<<<<<< HEAD
 # VSCode files
+=======
+#VSCode files
+>>>>>>> Alternate-UI
 .vscode/*
