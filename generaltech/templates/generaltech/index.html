@@ -41,16 +41,29 @@
     <span class="curtain"></span>
     <summary>
         <h2>{{ main_article.title }}</h2><br>
-        <p id="writer">Mukul Singh</p><p> · </p><p id="publish_date">{{ main_article.created_on }}</p>
+        <p id="writer">Mukul Singh</p><p> · </p><p id="publish_date">
+            {{ main_article.created_on }}
+        </p>
     </summary>
 </a>
 <div id="side_articles">
+    <header>
+        <div>
+            <svg viewBox="0 0 100 100" width="16" height="16">
+                <use xlink:href="#icon-pencil2"></use>
+            </svg>
+        </div>
+        <p><b>Featured</b></p>
+        
+    </header>
     {% for post in featured_posts %}
         <a class="side_article_cont" href="{% url 'article' post.url %}">
             <img id="article2_img" src="{{ post.titleImage }}" alt="fix_me" />
             <summary>
                 <h4>{{ post.title }}</h4><br>
-                <p id="writer">Mukul Singh</p><p> · </p><p id="publish_date">{{ post.created_on }}</p>
+                <p id="writer">Mukul Singh</p><p> · </p><p id="publish_date">
+                    {{ post.created_on }}
+                </p>
             </summary>
         </a>
         {% if not forloop.last %}<footer><hr></footer>{% endif %}
@@ -78,8 +91,13 @@
             <a class="norm_article_cont" href="{% url 'article' post.url %}">
                 <img class="norm_article_img" src="{{ post.titleImage }}" alt="fix_me" />
                 <summary>
-                    <h4>{{ post.title }}</h4>
-                    <p id="writer">Mukul Singh</p><p> · </p><p id="publish_date">{{ post.created_on }}</p>
+                    <div class="article_title"><h4>{{ post.title }}</h4><br></div>
+                    <div class="article_description"><p>This is the summary of the given article whose image is on the left side</p></div>
+                    <div class="article_details">
+                        <p id="writer">By Mukul Singh</p>
+                        <span> · </span>
+                        <p id="publish_date">{{ post.created_on }}</p>
+                    </div>
                 </summary>
             </a>
         {% endfor %}
