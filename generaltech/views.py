@@ -8,16 +8,16 @@ from requests.exceptions import HTTPError
 
 def index(request):
     date = getDate()
-    context = {'date': date, }
+    context = {
+        'date': date,
+    }
     try:
-        response = requests.get(
-            'https://api.pinkadda.com/v1/posts/published',
-            params={
-                'project': 'pinkadda',
-                'limit': '10',
-                'offset': '0'
-            }
-        )
+        response = requests.get('https://api.pinkadda.com/v1/posts/published',
+                                params={
+                                    'project': 'pinkadda',
+                                    'limit': '10',
+                                    'offset': '0'
+                                })
         response.raise_for_status()
     except HTTPError as http_error:
         print(f'HTTP error occured: {http_error}')
@@ -60,7 +60,7 @@ def formatPost(post):
 
 def formatCreationDate(timestamp):
     # Timestamp coverted into miliseconds for compatibility
-    d = datetime.datetime.fromtimestamp(timestamp/1000)
+    d = datetime.datetime.fromtimestamp(timestamp / 1000)
     if d.date() == datetime.date.today():
         return "Today at " + d.strftime("%I:%M %p")
     elif d.date() == datetime.date.today() - datetime.timedelta(days=1):
