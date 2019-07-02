@@ -18,3 +18,10 @@ p, a {
     height: auto;
     background-color: #eee;
 }
+hr {
+    width: 100%;
+    height: 1px;
+    margin: 0;
+    border: 0px solid #eee;
+    background-color: #eee;
+}
