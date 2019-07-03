@@ -1,0 +1,44 @@
+article {
+  width: 100%;
+  display: flex;
+  padding: 24px 12px;
+  align-items: center;
+  flex-direction: column;
+}
+#article_header {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+#article_header figure {
+  margin: 0 0 0 12px;
+  flex: 1 1 500px;
+  position: relative;
+}
+#article_header figure img {
+  width: 100%;
+}
+#title_and_desc {
+  flex: 1 1 300px;
+}
+#title_and_desc h1 {
+  margin-top: 0;
+}
+#article_header span {
+  display: none;
+}
+#article_header p {
+  margin: 0;
+  font-size: 0.8em;
+}
+#article_header figcaption {
+  width: 100%;
+  padding: 8px;
+  position: absolute;
+  bottom: 0;
+}
+#article_content {
+  max-width: 600px;
+}

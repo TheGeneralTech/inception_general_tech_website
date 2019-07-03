@@ -41,11 +41,15 @@ def index(request):
 
 
 def article(request, article_id):
-    raise Http404("Article not found")
+    date = getDate()
+    context = {
+        'date': date,
+    }
+    return render(request, 'generaltech/article.html', context)
 
 
 def writer(request, writer_id):
-    raise Http404("Article not found")
+    raise Http404("Page not found")
 
 
 def getDate():

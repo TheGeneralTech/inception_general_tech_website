@@ -1,0 +1,93 @@
+{% extends "generaltech/base.html" %}
+{% load static %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'css/article.css' %}" />
+{% endblock %}
+
+{% block content %}
+<article>
+    <div id="article_header">
+        <div id="title_and_desc">
+            <h1>How To Get Rid Of Dandruff By Making Simple Changes In Your Routine</h1>
+            <h4>This is the summary of the given article whose image is on the left side</h4>
+            <p id="writer">By Mukul Singh</p>
+            <span> · </span>
+            <p id="publish_date">
+                {{ post.created_on }}
+                Jan 12, 2019
+            </p>
+        </div>
+        <figure>
+            <img src="{% static 'image/placeholder-image.jpg' %}" width="500" />
+            <figcaption>
+                <p>ISRO</p>
+            </figcaption>
+        </figure>
+    </div>
+    <div id="article_content">
+        <p>iOS 13’s third developer beta includes a new feature that makes it look like you’re staring directly at
+            your
+            front-facing camera during FaceTime calls, even when looking away at the person on your screen. The
+            feature,
+            which was spotted by Mike Rundle on Twitter, only appears to be working on the iPhone XS and XS Max with
+            this version of the beta, and can be toggled on and off from within FaceTime’s settings.
+
+            Normally, video calls tend to make it look like both participants are peering off to one side or the
+            other,
+            since they’re looking at the person on their display, rather than directly into the front-facing camera.
+            However, the new “FaceTime Attention Correction” feature appears to use some kind of image manipulation
+            to
+            correct this, and results in realistic-looking fake eye contact between the FaceTime users.
+            Coincidentally,
+            Rundle himself theorized back in 2017 that Apple would one day do this, although not so soon.
+
+
+            Normally if you look at a portrait phone screen, you appear to be looking below the front-facing camera.
+            Image: WSig
+
+
+            With the new feature, you appear to be looking at the camera, even when you’re looking at the screen.
+            Image:
+            WSig
+            On Twitter, Dave Schukin explains that the effect is being achieved using ARKit, which is used to map a
+            user’s face and adjust the positioning of their eyes accordingly. Using the arm from a pair of glasses,
+            Schukin shows how the software is warping the eye area slightly to achieve the effect. The same effect
+            also
+            appears to be present when wearing sunglasses.
+
+        </p>
+        <p>iOS 13’s third developer beta includes a new feature that makes it look like you’re staring directly at
+            your
+            front-facing camera during FaceTime calls, even when looking away at the person on your screen. The
+            feature,
+            which was spotted by Mike Rundle on Twitter, only appears to be working on the iPhone XS and XS Max with
+            this version of the beta, and can be toggled on and off from within FaceTime’s settings.</p>
+        <p>
+            Normally, video calls tend to make it look like both participants are peering off to one side or the
+            other,
+            since they’re looking at the person on their display, rather than directly into the front-facing camera.
+            However, the new “FaceTime Attention Correction” feature appears to use some kind of image manipulation
+            to
+            correct this, and results in realistic-looking fake eye contact between the FaceTime users.
+            Coincidentally,
+            Rundle himself theorized back in 2017 that Apple would one day do this, although not so soon.
+        </p>
+        <p>
+            Normally if you look at a portrait phone screen, you appear to be looking below the front-facing camera.
+            Image: WSig
+        </p>
+        <p>
+            With the new feature, you appear to be looking at the camera, even when you’re looking at the screen.
+            Image:
+            WSig
+            On Twitter, Dave Schukin explains that the effect is being achieved using ARKit, which is used to map a
+            user’s face and adjust the positioning of their eyes accordingly. Using the arm from a pair of glasses,
+            Schukin shows how the software is warping the eye area slightly to achieve the effect. The same effect
+            also
+            appears to be present when wearing sunglasses.
+
+        </p>
+    </div>
+</article>
+{% endblock %}

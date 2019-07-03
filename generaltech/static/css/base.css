@@ -33,3 +33,72 @@ hr {
   border: 0px solid #eee;
   background-color: #eee;
 }
+
+/* header */
+header {
+  width: 100%;
+  padding: 0 12px;
+}
+#header_content {
+  width: 100%;
+  max-width: 1176px;
+  margin: auto;
+  padding-top: 12px;
+  position: relative;
+  flex: 0 0 100%;
+  border: #eee solid;
+  border-width: 0 0 1px;
+}
+#date_social_cont {
+  position: relative;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+#social_links {
+  padding: 2px;
+}
+#social_links a svg {
+  width: 16px;
+  height: 16px;
+  margin: 4px 4px 4px 16px;
+  float: left;
+}
+#date_today {
+  padding: 2px;
+  margin: 0;
+  font-size: 0.8em;
+}
+
+#logo {
+  width: 100%;
+  max-width: 400px;
+  display: block;
+  margin: 0 auto 6px;
+}
+#logo img {
+  width: 100%;
+}
+/* header ends */
+
+/* Responsive config */
+
+@media only screen and (min-width: 650px) {
+  #logo {
+    margin: 0 auto 0;
+  }
+  #header_content {
+    padding-top: 28px;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  #social_links a svg {
+    margin: 4px;
+  }
+}
+
+/* Responsive config ends */

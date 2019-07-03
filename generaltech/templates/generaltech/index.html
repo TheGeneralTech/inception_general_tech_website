@@ -3,45 +3,16 @@
 
 {% block stylesheets %}
 <link rel="stylesheet" href="{% static 'css/index.css' %}" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap">
 {% endblock %}
 
 {% block content %}
-{% include 'generaltech/symbol-defs.svg' %}
-<header>
-    <div id="header_content">
-        <a id="logo" href="{% url 'index' %}">
-            <img src="{% static 'image/temp_logo.png' %}" alt="General Tech" />
-        </a>
-        <div id="date_social_cont">
-            <p id="date_today">{{ date }} </p>
-            <div id="social_links">
-                <a id="facebook_link" href="fix_me" title="facebook">
-                    <svg viewBox="0 0 100 100" width="16" height="16">
-                        <use xlink:href="#icon-facebook"></use>
-                    </svg>
-                </a>
-                <a id="twitter_link" href="fix_me" title="twitter">
-                    <svg viewBox="0 0 100 100" width="16" height="16">
-                        <use xlink:href="#icon-twitter"></use>
-                    </svg>
-                </a>
-                <a id="facebook_link" href="fix_me" title="rss">
-                    <svg viewBox="0 0 100 100" width="16" height="16">
-                        <use xlink:href="#icon-rss"></use>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </div>
-</header>
 <div id="main_content">
-    <a id="main_article_cont" href="{% url 'article' 'fix_me' %}">
+    <a id="main_article_cont" href="{% url 'article' main_article.url %}">
         <img id="article1_img" src="{{ main_article.titleImage }}" alt="fix_me" />
         <span class="curtain"></span>
         <summary>
             <h2>{{ main_article.title }}</h2><br>
-            <p id="writer">Mukul Singh</p>
+            <p id="writer">By Mukul Singh</p>
             <p> · </p>
             <p id="publish_date">
                 {{ main_article.created_on }}
@@ -63,7 +34,7 @@
             <img id="article2_img" src="{{ post.titleImage }}" alt="fix_me" />
             <summary>
                 <h4>{{ post.title }}</h4><br>
-                <p id="writer">Mukul Singh</p>
+                <p id="writer">By Mukul Singh</p>
                 <p> · </p>
                 <p id="publish_date">
                     {{ post.created_on }}
