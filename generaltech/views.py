@@ -3,6 +3,7 @@ from django.http import Http404
 
 import datetime
 import requests
+import mistune
 from requests.exceptions import HTTPError
 
 
@@ -45,6 +46,26 @@ def article(request, article_id):
     context = {
         'date': date,
     }
+    try:
+        response = requests.get('https://api.pinkadda.com/v1/posts/published',
+                                params={
+                                    'q_type': 'single',
+                                    'url': article_id
+                                })
+        response.raise_for_status()
+    except HTTPError as http_error:
+        print(f'HTTP error occured: {http_error}')
+        raise Http404('Page does not exist')
+    except Exception as err:
+        print(f'Other error occured: {err}')
+        raise Http404("Page does not exist")
+    else:
+        response_dict = response.json()
+        context['a_title'] = response_dict['title']
+        context['a_titleImage'] = response_dict['titleImage']
+        context['a_text'] = mistune.markdown(response_dict['description'])
+        context['a_created_on'] = formatCreationDate(
+            response_dict['created_on'])
     return render(request, 'generaltech/article.html', context)
 
 
