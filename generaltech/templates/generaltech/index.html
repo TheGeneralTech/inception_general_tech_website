@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block content %}
+{% include 'generaltech/index-symbol-defs.svg' %}
 <div id="main_content">
     <a id="main_article_cont" href="{% url 'article' main_article.url %}">
         <img id="article1_img" src="{{ main_article.titleImage }}" alt="fix_me" />

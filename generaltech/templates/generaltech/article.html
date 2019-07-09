@@ -6,6 +6,8 @@
 {% endblock %}
 
 {% block content %}
+{% include 'generaltech/article-symbol-defs.svg' %}
+<div id="below_div_advert"></div>
 <article>
     <header id="article_header">
         <div id="title_and_desc">
@@ -13,6 +15,7 @@
             <h4>This is the summary of the given article whose image is on the left side. I think the summary should be
                 a little bigger to seem fuller</h4>
             <span id="writer">By Mukul Singh</span>
+            <span><strong>&#183;</strong></span>
             <span id="publish_date">
                 {{ a_created_on }}
             </span>
@@ -27,5 +30,34 @@
     <div id="article_content">
         {{ a_text|safe }}
     </div>
+    <footer>
+        <div id="article_tags">
+            <a href="fix_me">Tag One</a>
+            <a href="fix_me">Tag Two</a>
+            <a href="fix_me">Tag Three Three</a>
+            <a href="fix_me">Tag Four</a></div>
+        <div id="share_links">
+            <a href="fix_me" class="share_link">
+                <svg viewBox="0 0 100 100" width="16" height="16">
+                    <use xlink:href="#icon-facebook"></use>
+                </svg>
+            </a>
+            <a href="fix_me" class="share_link">
+                <svg viewBox="0 0 100 100" width="16" height="16">
+                    <use xlink:href="#icon-twitter  "></use>
+                </svg>
+            </a>
+            <a href="fix_me" class="share_link">
+                <svg viewBox="0 0 100 100" width="16" height="16">
+                    <use xlink:href="#icon-reddit-alien"></use>
+                </svg>
+            </a>
+            <a href="fix_me" class="share_link">
+                <svg viewBox="0 0 100 100" width="16" height="16">
+                    <use xlink:href="#icon-envelop"></use>
+                </svg>
+            </a>
+        </div>
+    </footer>
 </article>
 {% endblock %}
