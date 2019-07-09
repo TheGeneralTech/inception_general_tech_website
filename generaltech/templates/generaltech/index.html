@@ -13,7 +13,7 @@
         <span class="curtain"></span>
         <summary>
             <h2>{{ main_article.title }}</h2><br>
-            <p id="writer">By Mukul Singh</p>
+            <p id="writer">Mukul Singh</p>
             <p> · </p>
             <p id="publish_date">
                 {{ main_article.created_on }}
@@ -35,7 +35,7 @@
             <img id="article2_img" src="{{ post.titleImage }}" alt="fix_me" />
             <summary>
                 <h4>{{ post.title }}</h4><br>
-                <p id="writer">By Mukul Singh</p>
+                <p id="writer">Mukul Singh</p>
                 <p> · </p>
                 <p id="publish_date">
                     {{ post.created_on }}
@@ -69,17 +69,13 @@
             <a class="norm_article_cont" href="{% url 'article' post.url %}">
                 <img class="norm_article_img" src="{{ post.titleImage }}" alt="fix_me" />
                 <summary>
-                    <div class="article_title">
-                        <h4>{{ post.title }}</h4><br>
-                    </div>
+                    <h4 class="article_heading">{{ post.title }}</h4><br>
                     <div class="article_description">
                         <p>This is the summary of the given article whose image is on the left side</p>
                     </div>
-                    <div class="article_details">
-                        <p id="writer">By Mukul Singh</p>
-                        <span> · </span>
-                        <p id="publish_date">{{ post.created_on }}</p>
-                    </div>
+                    <span class="article_writer">Mukul Singh</span>
+                    <span class="interpunct"> · </span>
+                    <span class="article_publish_date">{{ post.created_on }}</span>
                 </summary>
             </a>
             {% if not forloop.last %}

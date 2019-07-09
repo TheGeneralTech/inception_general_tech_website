@@ -149,12 +149,12 @@
 .norm_article_cont:hover {
   color: #444;
 }
+#norm_articles hr {
+  max-width: 650px;
+}
 .article_description {
   color: #555;
   display: none;
-}
-.article_details {
-  color: #444;
 }
 .norm_article_img {
   width: 110px;
@@ -171,8 +171,9 @@
   margin: 0;
   display: inline;
 }
-.article_details p {
+.norm_article_cont summary span {
   font-size: 0.8em;
+  color: #333;
 }
 
 /* Normal Articles Ends */
@@ -249,29 +250,11 @@
 
 @media only screen and (min-width: 800px) {
   .norm_article_cont h4 {
-    font-size: 1.2em;
-  }
-  #norm_articles hr {
-    max-width: 650px;
+    font-size: 1.3em;
   }
   .norm_article_img {
     width: 120px;
     height: 120px;
-  }
-  .norm_article_cont summary {
-    display: flex;
-    flex-direction: row;
-  }
-  .article_title,
-  .article_description {
-    margin-right: 12px;
-    flex: 1 1 200px;
-  }
-  .article_details {
-    flex: 0 0 100px;
-  }
-  .article_details span {
-    display: none;
   }
 }
 
