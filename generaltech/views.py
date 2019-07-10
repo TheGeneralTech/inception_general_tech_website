@@ -71,7 +71,7 @@ def author(request, author_id): #fix_me
         response = requests.get('https://api.pinkadda.com/v1/posts/published',
                                 params={
                                     'project': 'pinkadda',
-                                    'limit': '10',
+                                    'limit': '20',
                                     'offset': '0'
                                 })
         response.raise_for_status()
@@ -96,7 +96,7 @@ def tag(request, tag_id):
         response = requests.get('https://api.pinkadda.com/v1/posts/published',
                                 params={
                                     'project': 'pinkadda',
-                                    'limit': '10',
+                                    'limit': '20',
                                     'offset': '0'
                                 })
         response.raise_for_status()

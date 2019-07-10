@@ -5,6 +5,10 @@
 <link rel="stylesheet" href="{% static 'css/index.css' %}" />
 {% endblock %}
 
+{% block scripts %}
+<script src="{% static 'js/index.js' %}"></script>
+{% endblock %}
+
 {% block content %}
 {% include 'generaltech/index-symbol-defs.svg' %}
 <div id="main_content">
