@@ -90,6 +90,31 @@ def author(request, author_id): #fix_me
     return render(request, 'generaltech/author.html', context)
 
 
+def tag(request, tag_id):
+    context = getBaseContext()
+    try:
+        response = requests.get('https://api.pinkadda.com/v1/posts/published',
+                                params={
+                                    'project': 'pinkadda',
+                                    'limit': '10',
+                                    'offset': '0'
+                                })
+        response.raise_for_status()
+    except HTTPError as http_error:
+        print(f'HTTP error occured: {http_error}')
+        raise Http404("Page does not exist")
+    except Exception as err:
+        print(f'Other error occured: {err}')
+        raise Http404("Page does not exist")
+    else:
+        response_dict = response.json()
+        posts = response_dict['posts']
+        posts = list(map(formatPost, posts))
+        context['tag'] = tag_id #fixe_me
+        context['posts'] = posts
+    return render(request, 'generaltech/tag.html', context)
+
+
 def getBaseContext():
     date = getDate()
     context = {

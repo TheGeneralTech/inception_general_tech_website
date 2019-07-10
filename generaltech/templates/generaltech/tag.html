@@ -1,0 +1,15 @@
+{% extends "generaltech/base.html" %}
+{% load static %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'css/author.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div id="main">
+  <div id="author_info">
+    <h1>{{ tag }}</h1>
+  </div>
+  {% include "generaltech/normal_articles.html" %}
+</div>
+{% endblock %}
