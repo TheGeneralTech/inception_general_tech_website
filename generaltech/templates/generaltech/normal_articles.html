@@ -1,0 +1,18 @@
+<div id="norm_articles">
+  {% for post in posts %}
+  <a class="norm_article_cont" href="{% url 'article' post.url %}">
+    <img class="norm_article_img" src="{{ post.titleImage }}" alt="fix_me" />
+    <summary>
+      <h3 class="article_heading">{{ post.title }}</h3><br>
+      <div class="article_description">
+        <p>This is the summary of the given article whose image is on the left side</p>
+      </div>
+      <span class="article_writer">{{ post.author }}</span>
+      <span class="interpunct"> · </span>
+      <span class="article_publish_date">{{ post.created_on }}</span>
+    </summary>
+  </a>
+  {% if not forloop.last %}
+  <hr>{% endif %}
+  {% endfor %}
+</div>

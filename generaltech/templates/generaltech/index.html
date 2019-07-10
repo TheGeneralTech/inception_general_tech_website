@@ -13,7 +13,7 @@
         <span class="curtain"></span>
         <summary>
             <h2>{{ main_article.title }}</h2><br>
-            <p id="writer">Mukul Singh</p>
+            <p id="writer">{{ main_article.author }}</p>
             <p> · </p>
             <p id="publish_date">
                 {{ main_article.created_on }}
@@ -28,14 +28,13 @@
                 </svg>
             </div>
             <p><b>Featured</b></p>
-
         </header>
         {% for post in featured_posts %}
         <a class="side_article_cont" href="{% url 'article' post.url %}">
             <img id="article2_img" src="{{ post.titleImage }}" alt="fix_me" />
             <summary>
                 <h4>{{ post.title }}</h4><br>
-                <p id="writer">Mukul Singh</p>
+                <p id="writer">{{ post.author }}</p>
                 <p> · </p>
                 <p id="publish_date">
                     {{ post.created_on }}
@@ -64,24 +63,7 @@
             <a href="fix_me">Tag Five</a>
             <a href="fix_me">Tag Six</a>
         </div>
-        <div id="norm_articles">
-            {% for post in posts %}
-            <a class="norm_article_cont" href="{% url 'article' post.url %}">
-                <img class="norm_article_img" src="{{ post.titleImage }}" alt="fix_me" />
-                <summary>
-                    <h3 class="article_heading">{{ post.title }}</h3><br>
-                    <div class="article_description">
-                        <p>This is the summary of the given article whose image is on the left side</p>
-                    </div>
-                    <span class="article_writer">Mukul Singh</span>
-                    <span class="interpunct"> · </span>
-                    <span class="article_publish_date">{{ post.created_on }}</span>
-                </summary>
-            </a>
-            {% if not forloop.last %}
-            <hr>{% endif %}
-            {% endfor %}
-        </div>
+        {% include "generaltech/normal_articles.html" %}
         <div id="advert_side"></div>
     </div>
 </div>

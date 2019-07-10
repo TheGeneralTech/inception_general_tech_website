@@ -22,6 +22,10 @@ article {
   max-width: 650px;
   padding: 18px;
 }
+#title_and_desc a {
+  text-decoration: none;
+  color: magenta;
+}
 #a_title_image_cont {
   width: 100%;
   margin: 0;

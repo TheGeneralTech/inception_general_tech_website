@@ -7,16 +7,13 @@ import mistune
 from requests.exceptions import HTTPError
 
 
-def index(request):
-    date = getDate()
-    context = {
-        'date': date,
-    }
+def index(request):    
+    context = getBaseContext()
     try:
         response = requests.get('https://api.pinkadda.com/v1/posts/published',
                                 params={
                                     'project': 'pinkadda',
-                                    'limit': '10',
+                                    'limit': '20',
                                     'offset': '0'
                                 })
         response.raise_for_status()
@@ -42,10 +39,7 @@ def index(request):
 
 
 def article(request, article_id):
-    date = getDate()
-    context = {
-        'date': date,
-    }
+    context = getBaseContext()
     try:
         response = requests.get('https://api.pinkadda.com/v1/posts/published',
                                 params={
@@ -66,12 +60,42 @@ def article(request, article_id):
         context['a_text'] = mistune.markdown(response_dict['description'])
         context['a_created_on'] = formatCreationDate(
             response_dict['created_on'])
+        context['author_url'] = response_dict['author'] #fixe_me
+        context['author'] = response_dict['author'] #fixe_me
     return render(request, 'generaltech/article.html', context)
 
 
-def writer(request, writer_id):
-    raise Http404("Page not found")
+def author(request, author_id): #fix_me
+    context = getBaseContext()
+    try:
+        response = requests.get('https://api.pinkadda.com/v1/posts/published',
+                                params={
+                                    'project': 'pinkadda',
+                                    'limit': '10',
+                                    'offset': '0'
+                                })
+        response.raise_for_status()
+    except HTTPError as http_error:
+        print(f'HTTP error occured: {http_error}')
+        raise Http404("Page does not exist")
+    except Exception as err:
+        print(f'Other error occured: {err}')
+        raise Http404("Page does not exist")
+    else:
+        response_dict = response.json()
+        posts = response_dict['posts']
+        posts = list(map(formatPost, posts))
+        context['author'] = author_id #fixe_me
+        context['posts'] = posts
+    return render(request, 'generaltech/author.html', context)
 
+
+def getBaseContext():
+    date = getDate()
+    context = {
+        'date': date,
+    }
+    return context
 
 def getDate():
     d = datetime.datetime.now()
