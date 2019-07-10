@@ -168,7 +168,7 @@
   background-color: #999;
   flex: unset;
 }
-.norm_article_cont summary h4,
+.norm_article_cont summary h3,
 .norm_article_cont summary p {
   margin: 0;
   display: inline;
@@ -251,9 +251,6 @@
 }
 
 @media only screen and (min-width: 800px) {
-  .norm_article_cont h4 {
-    font-size: 1.2em;
-  }
   .norm_article_img {
     width: 120px;
     height: 120px;
