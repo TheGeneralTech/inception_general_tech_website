@@ -109,6 +109,7 @@
 .side_article_cont img {
   width: 90px;
   height: 90px;
+  flex: 0 0 90px;
   margin-right: 12px;
   object-fit: cover;
   border: #ccc solid 0;
@@ -159,6 +160,7 @@
 .norm_article_img {
   width: 110px;
   height: 110px;
+  flex: 0 0 110px;
   margin-right: 12px;
   object-fit: cover;
   border: #ccc solid 0;
@@ -250,11 +252,12 @@
 
 @media only screen and (min-width: 800px) {
   .norm_article_cont h4 {
-    font-size: 1.3em;
+    font-size: 1.2em;
   }
   .norm_article_img {
     width: 120px;
     height: 120px;
+    flex: 0 0 120px;
   }
 }
 
