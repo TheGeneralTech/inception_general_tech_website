@@ -319,6 +319,7 @@ header {
 }
 
 .norm_article_cont {
+  width: 100%;
   max-width: 650px;
   padding: 12px 0;
   height: auto;
