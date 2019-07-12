@@ -1,0 +1,19 @@
+@import './base';
+@import './variables';
+
+#main {
+  width: 100%;
+  max-width: $normal_articles_width;
+  margin: auto;
+}
+#author_info {
+  padding: $standard_sep;
+  margin: 48px 0;
+}
+
+#main p,
+#main h1 {
+  margin: 0;
+}
+
+@import './normal_articles'

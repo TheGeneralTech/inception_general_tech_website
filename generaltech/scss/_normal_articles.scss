@@ -1,0 +1,63 @@
+@import './variables';
+
+#norm_articles {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: $standard_sep;
+}
+.norm_article_cont {
+  max-width: $normal_articles_width;
+  padding: $standard_sep 0;
+  height: auto;
+  color: $font_color;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+}
+#norm_articles hr {
+  max-width: $normal_articles_width;
+}
+.article_description {
+  color: $font_color_lighter;
+  display: none;
+}
+.norm_article_img {
+  width: 110px;
+  height: 110px;
+  flex: 0 0 110px;
+  margin-right: $standard_sep;
+  object-fit: cover;
+  border: $border_color solid 0;
+  border-radius: $border_radius;
+  flex: unset;
+}
+.norm_article_cont summary h3,
+.norm_article_cont summary p {
+  margin: 0;
+  display: inline;
+}
+.norm_article_cont summary span {
+  font-size: $smaller_font;
+  color: $font_color_light;
+}
+
+/* Responsive config */
+
+@media only screen and (min-width: 650px) {
+  .article_description {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .norm_article_img {
+    width: 120px;
+    height: 120px;
+    flex: 0 0 120px;
+  }
+}
+
+/* Responsive config ends */
