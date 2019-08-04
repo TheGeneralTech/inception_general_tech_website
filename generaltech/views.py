@@ -7,7 +7,7 @@ import mistune
 from requests.exceptions import HTTPError
 
 
-def index(request):    
+def index(request):
     context = getBaseContext()
     try:
         response = requests.get('https://api.pinkadda.com/v1/posts/published',
@@ -113,6 +113,9 @@ def tag(request, tag_id):
         context['tag'] = tag_id #fixe_me
         context['posts'] = posts
     return render(request, 'generaltech/tag.html', context)
+
+def newsletter(request):
+    pass
 
 
 def getBaseContext():

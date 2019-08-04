@@ -66,8 +66,9 @@ function fetchMoreContent() {
 
             var postCreatedOn = document.createElement("span");
             postCreatedOn.className = "article_publish_date";
+            var creation_date = formatDate(post["created_on"]);
             postCreatedOn.appendChild(
-              document.createTextNode(post["created_on"])
+              document.createTextNode(creation_date)
             );
             postSummary.appendChild(postCreatedOn);
 
@@ -85,4 +86,10 @@ function fetchMoreContent() {
       request.send();
     }
   }
+}
+
+function formatDate(date) {
+  var d = new Date(date).toString().substring(4,15).split(' ');
+  d[1] += ','
+  return d.join(' ');
 }

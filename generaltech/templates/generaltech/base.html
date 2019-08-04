@@ -19,8 +19,14 @@
             <a id="logo" href="{% url 'index' %}">
                 <img src="{% static 'image/temp_logo.png' %}" alt="General Tech" />
             </a>
-            <div id="date_social_cont">
+            <div id="header_menu">
                 <p id="date_today">{{ date }} </p>
+                <a id="sub_newsletter" href="{% url 'newsletter' %}">
+                    <svg viewBox="0 0 100 100" width="16" height="16">
+                        <use xlink:href="#icon-newspaper"></use>
+                    </svg>
+                    <figcaption>Newsletter</figcaption>
+                </a>
                 <div id="social_links">
                     <a id="facebook_link" href="fix_me" title="facebook">
                         <svg viewBox="0 0 100 100" width="16" height="16">

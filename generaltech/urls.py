@@ -18,8 +18,10 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    # path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('article/<slug:article_id>', views.article, name='article'),
     path('author/<slug:author_id>', views.author, name='author'),
     path('tag/<slug:tag_id>', views.tag, name='tag'),
+    path('newsletter/', views.newsletter, name='newsletter'),
 ]
