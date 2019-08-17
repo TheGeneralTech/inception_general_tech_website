@@ -221,9 +221,6 @@ header {
      object-fit: cover;
   border: #eee solid 0;
   border-radius: 5px;
-  -webkit-box-flex: unset;
-      -ms-flex: unset;
-          flex: unset;
 }
 
 .norm_article_cont summary h3,
