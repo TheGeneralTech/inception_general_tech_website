@@ -1,6 +1,5 @@
 var fetch_more = true;
-var offset = 20;
-var step = 20;
+var page_num = 2;
 
 document.addEventListener("scroll", fetchMoreContent);
 
@@ -13,83 +12,27 @@ function fetchMoreContent() {
 
       request.open(
         "GET",
-        "https://api.pinkadda.com/v1/posts/published" +
-          "?project=pinkadda&limit=20&offset=" +
-          offset,
+        "/feed/page/" +
+          page_num,
         true
       );
 
       request.onload = function() {
         if (request.status == 200) {
           result = JSON.parse(request.responseText);
+
           posts = result["posts"];
+          art_conts = document.getElementsByClassName('norm_articles');
+          last_cont = art_conts[art_conts.length - 1];
+          last_cont.innerHTML = posts;
 
-          posts.forEach(post => {
-            var parent = document.getElementById("norm_articles");
-
-            parent.appendChild(document.createElement("hr"));
-
-            var newPost = document.createElement("a");
-            newPost.className = "norm_article_cont";
-            newPost.setAttribute("href", "/article/" + post["url"]);
-
-            var postImage = document.createElement("img");
-            postImage.className = "norm_article_img";
-            postImage.setAttribute("src", post["titleImage"]);
-            postImage.setAttribute("alt", "fix_me");
-            newPost.appendChild(postImage);
-
-            var postSummary = document.createElement("summary");
-
-            var postHeading = document.createElement("h3");
-            postHeading.className = "article_heading";
-            postHeading.appendChild(document.createTextNode(post["title"]));
-            postSummary.appendChild(postHeading);
-            postSummary.appendChild(document.createElement("br"));
-
-            var postDescription = document.createElement("div");
-            postDescription.className = "article_description";
-            var postDescriptionPara = document.createElement("p");
-            postDescriptionPara.appendChild(document.createTextNode("fix_me"));
-            postDescription.appendChild(postDescriptionPara);
-            postSummary.appendChild(postDescription);
-
-            var postWriter = document.createElement("span");
-            postWriter.className = "article_writer";
-            postWriter.appendChild(document.createTextNode(post["author"]));
-            postSummary.appendChild(postWriter);
-
-            var interpunct = document.createElement("span");
-            interpunct.className = "interpunct";
-            interpunct.appendChild(document.createTextNode(" · "));
-            postSummary.appendChild(interpunct);
-
-            var postCreatedOn = document.createElement("span");
-            postCreatedOn.className = "article_publish_date";
-            var creation_date = formatDate(post["created_on"]);
-            postCreatedOn.appendChild(
-              document.createTextNode(creation_date)
-            );
-            postSummary.appendChild(postCreatedOn);
-
-            newPost.appendChild(postSummary);
-
-            parent.appendChild(newPost);
-          });
-
-          offset += step;
           if (result["hasMore"] == true) fetch_more = true;
           else fetch_more = false;
+          page_num++;
         }
       };
 
       request.send();
     }
   }
-}
-
-function formatDate(date) {
-  var d = new Date(date).toString().substring(4,15).split(' ');
-  d[1] += ','
-  return d.join(' ');
 }

@@ -170,7 +170,7 @@ header {
   margin: 0;
 }
 
-#norm_articles {
+.norm_articles {
   width: 100%;
   height: auto;
   display: -webkit-box;
@@ -182,7 +182,11 @@ header {
           flex-direction: column;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 12px;
+  padding: 0 12px;
+}
+
+.norm_articles:nth-child(1) {
+  padding-top: 12px;
 }
 
 .norm_article_cont {
@@ -201,7 +205,7 @@ header {
           flex-direction: row;
 }
 
-#norm_articles hr {
+.norm_articles hr {
   max-width: 650px;
 }
 

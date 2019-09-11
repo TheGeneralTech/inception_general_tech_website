@@ -180,8 +180,8 @@
     float: right;
     margin: 6px;
   }
-  #norm_articles {
-    flex: 1 1 600px;
+  #norm_articles_cont {
+    flex: 1 1 $normal_articles_width;
   }
 }
 
@@ -200,7 +200,7 @@
 }
 
 @media only screen and (min-width: 1000px) {
-  #norm_articles {
+  .norm_articles {
     align-items: center;
   }
   #advert_side {

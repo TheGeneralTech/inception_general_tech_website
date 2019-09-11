@@ -1,11 +1,13 @@
 from django.shortcuts import render
-from django.http import Http404
+from django.http import Http404, JsonResponse
+from django.template.loader import render_to_string
 
 import datetime
 import requests
 import mistune
 from requests.exceptions import HTTPError
 
+article_limit = 20
 
 def index(request):
     context = getBaseContext()
@@ -36,6 +38,36 @@ def index(request):
         context['featured_posts'] = featured_posts
         context['main_article'] = main_article
     return render(request, 'generaltech/index.html', context)
+
+
+def index_pages(request, page_num):
+    page_num -= 1
+    context = getBaseContext()
+    try:
+        response = requests.get('https://api.pinkadda.com/v1/posts/published',
+                                params={
+                                    'project': 'pinkadda',
+                                    'limit': article_limit,
+                                    'offset': page_num * article_limit,
+                                })
+        response.raise_for_status()
+    except HTTPError as http_error:
+        print(f'HTTP error occured: {http_error}')
+        raise Http404("Page does not exist")
+    except Exception as err:
+        print(f'Other error occured: {err}')
+        raise Http404("Page does not exist")
+    else:
+        response_dict = response.json()
+        posts = response_dict['posts']
+        posts = list(map(formatPost, posts))
+        context['posts'] = posts
+        rendered_posts = render_to_string('generaltech/normal_articles.html', context)
+        json_response = {
+            'hasMore': response_dict['hasMore'],
+            'posts': rendered_posts,
+        }
+        return JsonResponse(json_response)
 
 
 def article(request, article_id):
@@ -90,6 +122,36 @@ def author(request, author_id): #fix_me
     return render(request, 'generaltech/author.html', context)
 
 
+def author_pages(request, author_id, page_num):
+    page_num -= 1
+    context = getBaseContext()
+    try:
+        response = requests.get('https://api.pinkadda.com/v1/posts/published',
+                                params={
+                                    'project': 'pinkadda',
+                                    'limit': article_limit,
+                                    'offset': page_num * article_limit,
+                                })
+        response.raise_for_status()
+    except HTTPError as http_error:
+        print(f'HTTP error occured: {http_error}')
+        raise Http404("Page does not exist")
+    except Exception as err:
+        print(f'Other error occured: {err}')
+        raise Http404("Page does not exist")
+    else:
+        response_dict = response.json()
+        posts = response_dict['posts']
+        posts = list(map(formatPost, posts))
+        context['posts'] = posts
+        rendered_posts = render_to_string('generaltech/normal_articles.html', context)
+        json_response = {
+            'hasMore': response_dict['hasMore'],
+            'posts': rendered_posts,
+        }
+        return JsonResponse(json_response)
+
+
 def tag(request, tag_id):
     context = getBaseContext()
     try:
@@ -113,6 +175,36 @@ def tag(request, tag_id):
         context['tag'] = tag_id #fixe_me
         context['posts'] = posts
     return render(request, 'generaltech/tag.html', context)
+
+
+def tag_pages(request, tag_id, page_num):
+    page_num -= 1
+    context = getBaseContext()
+    try:
+        response = requests.get('https://api.pinkadda.com/v1/posts/published',
+                                params={
+                                    'project': 'pinkadda',
+                                    'limit': article_limit,
+                                    'offset': page_num * article_limit,
+                                })
+        response.raise_for_status()
+    except HTTPError as http_error:
+        print(f'HTTP error occured: {http_error}')
+        raise Http404("Page does not exist")
+    except Exception as err:
+        print(f'Other error occured: {err}')
+        raise Http404("Page does not exist")
+    else:
+        response_dict = response.json()
+        posts = response_dict['posts']
+        posts = list(map(formatPost, posts))
+        context['posts'] = posts
+        rendered_posts = render_to_string('generaltech/normal_articles.html', context)
+        json_response = {
+            'hasMore': response_dict['hasMore'],
+            'posts': rendered_posts,
+        }
+        return JsonResponse(json_response)
 
 def newsletter(request):
     pass

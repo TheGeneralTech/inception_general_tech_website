@@ -67,7 +67,12 @@
             <a href="{% url 'tag' 'fix_me' %}">Tag Five</a>
             <a href="{% url 'tag' 'fix_me' %}">Tag Six</a>
         </div>
-        {% include "generaltech/normal_articles.html" %}
+        <div id="norm_articles_cont">
+            <div class="norm_articles">
+                {% include "generaltech/normal_articles.html" %}
+            </div>
+            <div class="norm_articles"></div>
+        </div>
         <div id="advert_side"></div>
     </div>
 </div>
