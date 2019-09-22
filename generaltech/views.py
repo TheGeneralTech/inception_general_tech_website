@@ -6,6 +6,7 @@ import datetime
 import requests
 import mistune
 from requests.exceptions import HTTPError
+import copy
 
 article_limit = 20
 
@@ -23,7 +24,7 @@ def index(request):
         print(f'HTTP error occured: {http_error}')
         raise Http404("Page does not exist")
     except Exception as err:
-        print(f'Other error occured: {err}')
+        print(f'Some error occured: {err}')
         raise Http404("Page does not exist")
     else:
         response_dict = response.json()
@@ -55,7 +56,7 @@ def index_pages(request, page_num):
         print(f'HTTP error occured: {http_error}')
         raise Http404("Page does not exist")
     except Exception as err:
-        print(f'Other error occured: {err}')
+        print(f'Some error occured: {err}')
         raise Http404("Page does not exist")
     else:
         response_dict = response.json()
@@ -83,18 +84,53 @@ def article(request, article_id):
         print(f'HTTP error occured: {http_error}')
         raise Http404('Page does not exist')
     except Exception as err:
-        print(f'Other error occured: {err}')
+        print(f'Some error occured: {err}')
         raise Http404("Page does not exist")
     else:
         response_dict = response.json()
-        context['a_title'] = response_dict['title']
-        context['a_titleImage'] = response_dict['titleImage']
-        context['a_text'] = mistune.markdown(response_dict['description'])
-        context['a_created_on'] = formatCreationDate(
-            response_dict['created_on'])
-        context['author_url'] = response_dict['author'] #fixe_me
-        context['author'] = response_dict['author'] #fixe_me
+        response_dict['description'] = mistune.markdown(response_dict['description'])
+        response_dict['created_on'] = formatCreationDate(response_dict['created_on'])
+        response_dict['inshort'] = False
+        context['article'] = response_dict
     return render(request, 'generaltech/article.html', context)
+
+
+def article_related(request, article_id):
+    """Return related articles"""
+    context = getBaseContext()
+    try:
+        response = requests.get('https://api.pinkadda.com/v1/posts/published',
+                                params={
+                                    'q_type': 'single',
+                                    'url': article_id
+                                })
+        response.raise_for_status()
+    except HTTPError as http_error:
+        print(f'HTTP error ocurred: {http_error}')
+        raise Http404('Page does not exist')
+    except Exception as err:
+        print(f'Some errror ocurred: {err}')
+        raise Http404('Page does not exist')
+    else:
+        ###### Retrieve related posts from api fix_me
+        response_dict = response.json()
+        response_dict['description'] = mistune.markdown(response_dict['description'])
+        response_dict['created_on'] = formatCreationDate(response_dict['created_on'])
+        response_dict['inshort'] = True
+        related_articles = [ copy.copy(response_dict), copy.copy(response_dict), copy.copy(response_dict) ]
+        related_articles[0]['url'] += str(0)
+        related_articles[1]['url'] += str(1)
+        related_articles[2]['url'] += str(2)
+        ######
+        rendered_articles = {}
+        related_articles[-1]['inshort'] = False
+        for article in related_articles:
+            context['article'] = article
+            rendered_articles[article['url']] = render_to_string('generaltech/article_template.html', context)
+        json_response = {
+            'articles': rendered_articles
+        }
+        return JsonResponse(json_response)
 
 
 def author(request, author_id): #fix_me
@@ -111,7 +147,7 @@ def author(request, author_id): #fix_me
         print(f'HTTP error occured: {http_error}')
         raise Http404("Page does not exist")
     except Exception as err:
-        print(f'Other error occured: {err}')
+        print(f'Some error occured: {err}')
         raise Http404("Page does not exist")
     else:
         response_dict = response.json()
@@ -137,7 +173,7 @@ def author_pages(request, author_id, page_num):
         print(f'HTTP error occured: {http_error}')
         raise Http404("Page does not exist")
     except Exception as err:
-        print(f'Other error occured: {err}')
+        print(f'Some error occured: {err}')
         raise Http404("Page does not exist")
     else:
         response_dict = response.json()
@@ -166,7 +202,7 @@ def tag(request, tag_id):
         print(f'HTTP error occured: {http_error}')
         raise Http404("Page does not exist")
     except Exception as err:
-        print(f'Other error occured: {err}')
+        print(f'Some error occured: {err}')
         raise Http404("Page does not exist")
     else:
         response_dict = response.json()
@@ -192,7 +228,7 @@ def tag_pages(request, tag_id, page_num):
         print(f'HTTP error occured: {http_error}')
         raise Http404("Page does not exist")
     except Exception as err:
-        print(f'Other error occured: {err}')
+        print(f'Some error occured: {err}')
         raise Http404("Page does not exist")
     else:
         response_dict = response.json()

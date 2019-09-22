@@ -22,6 +22,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('feed/page/<int:page_num>', views.index_pages, name='index_pages'),
     path('article/<slug:article_id>', views.article, name='article'),
+    path('article/<slug:article_id>/related', views.article_related, name='article_related'),
     path('author/<slug:author_id>', views.author, name='author'),
     path('author/<slug:author_id>/feed/page/<int:page_num>', views.author_pages, name='author_pages'),
     path('tag/<slug:tag_id>', views.tag, name='tag'),

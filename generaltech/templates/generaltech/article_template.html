@@ -1,24 +1,24 @@
-<article>
+<article id="article-{{article.url}}">
     <header id="article_header">
         <div id="title_and_desc">
-            <h1>{{ a_title }}</h1>
+            <h1>{{ article.title }}</h1>
             <h4>This is the summary of the given article whose image is on the left side. I think the summary should be
                 a little bigger to seem fuller</h4>
-            <span id="writer">By <a href="{% url 'author' author_url %}">{{ author }}</a></span>
+            <span id="writer">By <a href="{% url 'author' article.author %}">{{ article.author }}</a></span>
             <span><strong>&#183;</strong></span>
             <span id="publish_date">
-                {{ a_created_on }}
+                {{ article.created_on }}
             </span>
         </div>
         <figure id="a_title_image_cont">
-            <img src="{{ a_titleImage }}" width="500" />
+            <img src="{{ article.titleImage }}" width="500" />
             <figcaption>
                 <p>ISRO</p>
             </figcaption>
         </figure>
     </header>
     <div id="article_content">
-        {{ a_text|safe }}
+        {{ article.description|safe }}
     </div>
     <footer>
         <div id="article_tags">
@@ -49,4 +49,11 @@
             </a>
         </div>
     </footer>
+    {% if article.inshort %}
+    <div class="show_more_cont">
+        <button onclick="showFullArticle('{{article.url}}');" class="show_more_btn">
+            <p>Read Full Article</p>
+        </button>
+    </div>
+    {% endif %}
 </article>

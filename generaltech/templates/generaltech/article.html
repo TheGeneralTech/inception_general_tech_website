@@ -5,8 +5,12 @@
 <link rel="stylesheet" href="{% static 'css/article.css' %}" />
 {% endblock %}
 
+{% block scripts %}
+<script src="{% static 'js/article.js' %}"></script>
+{% endblock %}
+
 {% block content %}
 {% include 'generaltech/article-symbol-defs.svg' %}
 <div id="below_div_advert"></div>
-{% include 'generaltech/article_template.html' %}
+{% include 'generaltech/article_template.html' with article=article %}
 {% endblock %}
