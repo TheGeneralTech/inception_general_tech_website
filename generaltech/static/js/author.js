@@ -1,5 +1,5 @@
 var fetch_more = true;
-var page_num = 2;
+var page_num = 1;
 
 document.addEventListener("scroll", fetchMoreContent);
 

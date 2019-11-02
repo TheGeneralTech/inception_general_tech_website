@@ -181,11 +181,6 @@ article:nth-of-type(n+2) {
   overflow: hidden;
 }
 
-article:last-child {
-  height: auto;
-  overflow: unset;
-}
-
 #article_header {
   display: -webkit-box;
   display: -ms-flexbox;

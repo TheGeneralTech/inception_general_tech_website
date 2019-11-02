@@ -84,12 +84,15 @@
   border-bottom: 1px solid $border_color;
 }
 #side_articles header div {
-  background-color: $accent_color;
-  border-radius: 3px;
-  width: 36px;
-  height: 36px;
-  padding: 10px;
+  width: 28px;
+  height: 28px;
+  padding: 5px;
   margin-left: 8px;
+  border: 1px solid $accent_color;
+  border-radius: 3px;
+  svg {
+    fill: $accent_color;
+  }
 }
 #side_articles header p {
   display: inline;

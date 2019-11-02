@@ -16,16 +16,17 @@ Including another URLconf
 # from django.contrib import admin
 from django.urls import path
 from . import views
+from .views import IndexPageView, IndexFeedView, ArticlePageView, RelatedArticleView, AuthorPageView, AuthorFeedView, TagPageView, TagFeedView
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
-    path('feed/page/<int:page_num>', views.index_pages, name='index_pages'),
-    path('article/<slug:article_id>', views.article, name='article'),
-    path('article/<slug:article_id>/related', views.article_related, name='article_related'),
-    path('author/<slug:author_id>', views.author, name='author'),
-    path('author/<slug:author_id>/feed/page/<int:page_num>', views.author_pages, name='author_pages'),
-    path('tag/<slug:tag_id>', views.tag, name='tag'),
-    path('tag/<slug:tag_id>/feed/page/<int:page_num>', views.tag_pages, name='tag_pages'),
+    path('', IndexPageView.as_view(), name='index_page'),
+    path('feed/page/<int:page_num>', IndexFeedView.as_view(), name='index_feed'),
+    path('article/<slug:article_id>', ArticlePageView.as_view(), name='article_page'),
+    path('article/<slug:article_id>/related', RelatedArticleView.as_view(), name='article_related_feed'),
+    path('author/<slug:author_id>', AuthorPageView.as_view(), name='author_page'),
+    path('author/<slug:author_id>/feed/page/<int:page_num>', AuthorFeedView.as_view(), name='author_feed'),
+    path('tag/<slug:tag_id>', TagPageView.as_view(), name='tag_page'),
+    path('tag/<slug:tag_id>/feed/page/<int:page_num>', TagFeedView.as_view(), name='tag_feed'),
     path('newsletter/', views.newsletter, name='newsletter'),
 ]

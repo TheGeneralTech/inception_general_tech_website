@@ -4,7 +4,7 @@
             <h1>{{ article.title }}</h1>
             <h4>This is the summary of the given article whose image is on the left side. I think the summary should be
                 a little bigger to seem fuller</h4>
-            <span id="writer">By <a href="{% url 'author' article.author %}">{{ article.author }}</a></span>
+            <span id="writer">By <a href="{% url 'author_page' article.author.username %}">{{ article.author.name }}</a></span>
             <span><strong>&#183;</strong></span>
             <span id="publish_date">
                 {{ article.created_on }}
@@ -22,10 +22,10 @@
     </div>
     <footer>
         <div id="article_tags">
-            <a href="{% url 'tag' 'fix_me' %}">Tag One</a>
-            <a href="{% url 'tag' 'fix_me' %}">Tag Two</a>
-            <a href="{% url 'tag' 'fix_me' %}">Tag Three Three</a>
-            <a href="{% url 'tag' 'fix_me' %}">Tag Four</a></div>
+            <a href="{% url 'tag_page' 'fix_me' %}">Tag One</a>
+            <a href="{% url 'tag_page' 'fix_me' %}">Tag Two</a>
+            <a href="{% url 'tag_page' 'fix_me' %}">Tag Three Three</a>
+            <a href="{% url 'tag_page' 'fix_me' %}">Tag Four</a></div>
         <div id="share_links">
             <a href="fix_me" class="share_link">
                 <svg viewBox="0 0 100 100" width="16" height="16">
