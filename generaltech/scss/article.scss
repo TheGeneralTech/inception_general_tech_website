@@ -15,7 +15,7 @@ article {
   position: relative;
 }
 article:nth-of-type(n+2) {
-  height: 100vh;
+  height: 95vmax;
   overflow: hidden;
 }
 #article_header {
@@ -36,6 +36,8 @@ article:nth-of-type(n+2) {
 }
 #a_title_image_cont {
   width: 100%;
+  max-width: 1920px;
+  height: 54vw;
   margin: 0;
 }
 #a_title_image_cont img {

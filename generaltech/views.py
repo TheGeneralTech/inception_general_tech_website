@@ -11,10 +11,11 @@ from .api_driver.articles import Articles
 class IndexPageView(View):
     def get(self, request):
         context = getBaseContext()
-        main_article, featured_articles, articles =  Articles().getIndexPageArticles()
+        main_article, featured_articles, articles, tags =  Articles().getIndexPageArticles()
         context['posts'] = articles
         context['featured_posts'] = featured_articles
         context['main_article'] = main_article
+        context['tags'] = tags[:10]
         return render(request, 'generaltech/index.html', context)
 
 

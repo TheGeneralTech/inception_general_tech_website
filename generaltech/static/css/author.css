@@ -28,6 +28,15 @@ span {
   font-weight: 400;
 }
 
+a, button {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+p {
+  font-size: 1.1em;
+}
+
 #advert_top {
   width: 100%;
   height: auto;

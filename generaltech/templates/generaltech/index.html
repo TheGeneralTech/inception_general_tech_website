@@ -13,11 +13,11 @@
 {% include 'generaltech/index-symbol-defs.svg' %}
 <div id="main_content">
     <a id="main_article_cont" href="{% url 'article_page' main_article.url %}">
-        <img id="article1_img" src="{{ main_article.titleImage }}" alt="fix_me" />
+        <img id="article1_img" src="{{ main_article.titleImage }}" alt="" />
         <span class="curtain"></span>
         <summary>
             <h2>{{ main_article.title }}</h2><br>
-            <p id="writer">{{ main_article.author.name }}</p>
+            <p id="writer">By {{ main_article.author.name }}</p>
             <p> · </p>
             <p id="publish_date">
                 {{ main_article.created_on }}
@@ -35,10 +35,10 @@
         </header>
         {% for post in featured_posts %}
         <a class="side_article_cont" href="{% url 'article_page' post.url %}">
-            <img id="article2_img" src="{{ post.titleImage }}" alt="fix_me" />
+            <img id="article2_img" src="{{ post.titleImage }}" alt="" />
             <summary>
                 <h4>{{ post.title }}</h4><br>
-                <p id="writer">{{ post.author.name }}</p>
+                <p id="writer">By {{ post.author.name }}</p>
                 <p> · </p>
                 <p id="publish_date">
                     {{ post.created_on }}
@@ -54,18 +54,9 @@
 <div id="more_content_background">
     <div id="more_content">
         <div id="side_panel">
-            <a href="{% url 'tag_page' 'fix_me' %}">Tag One</a>
-            <a href="{% url 'tag_page' 'fix_me' %}">Tag Two</a>
-            <a href="{% url 'tag_page' 'fix_me' %}">Tag Three Three</a>
-            <a href="{% url 'tag_page' 'fix_me' %}">Tag Four</a>
-            <a href="{% url 'tag_page' 'fix_me' %}">Tag Five</a>
-            <a href="{% url 'tag_page' 'fix_me' %}">Tag Six</a>
-            <a href="{% url 'tag_page' 'fix_me' %}">Tag One</a>
-            <a href="{% url 'tag_page' 'fix_me' %}">Tag Two</a>
-            <a href="{% url 'tag_page' 'fix_me' %}">Tag Three</a>
-            <a href="{% url 'tag_page' 'fix_me' %}">Tag Four</a>
-            <a href="{% url 'tag_page' 'fix_me' %}">Tag Five</a>
-            <a href="{% url 'tag_page' 'fix_me' %}">Tag Six</a>
+            {% for tag in tags %}
+            <a href="{% url 'tag_page' tag.slug %}"><p>{{ tag.tag }}</p></a>
+            {% endfor %}
         </div>
         <div id="norm_articles_cont">
             <div class="norm_articles">

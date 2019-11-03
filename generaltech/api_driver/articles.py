@@ -40,7 +40,7 @@ class Articles:
         response_dict = response.json()
         articles = response_dict['posts']
         articles = list(map(self.formatArticle, articles))
-
+        tags = response_dict['topTags']
         response = self.getContentFromApi(parameters={
             'project': PROJECT_UUID,
             'limit': FEATURED_LIMIT,
@@ -51,7 +51,7 @@ class Articles:
         featured_articles = list(map(self.formatArticle, featured_articles))
         main_article = featured_articles[0]
         featured_articles = featured_articles[1:]
-        return main_article, featured_articles, articles
+        return main_article, featured_articles, articles, tags
 
     def getArticleContent(self, article_id, in_short):
         response = self.getContentFromApi(parameters={

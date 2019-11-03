@@ -24,7 +24,11 @@ function fetchMoreContent() {
           posts = result["posts"];
           art_conts = document.getElementsByClassName('norm_articles');
           last_cont = art_conts[art_conts.length - 1];
-          last_cont.innerHTML = posts;
+          new_art_cont = last_cont.cloneNode();
+          new_art_cont.innerHTML = posts;
+
+          document.getElementById("norm_articles_cont")
+          .insertBefore(new_art_cont, last_cont)
 
           if (result["hasMore"] == true) fetch_more = true;
           else fetch_more = false;

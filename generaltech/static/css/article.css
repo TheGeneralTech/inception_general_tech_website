@@ -28,6 +28,15 @@ span {
   font-weight: 400;
 }
 
+a, button {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+p {
+  font-size: 1.1em;
+}
+
 #advert_top {
   width: 100%;
   height: auto;
@@ -177,7 +186,7 @@ article {
 }
 
 article:nth-of-type(n+2) {
-  height: 100vh;
+  height: 95vmax;
   overflow: hidden;
 }
 
@@ -204,11 +213,13 @@ article:nth-of-type(n+2) {
 
 #title_and_desc a {
   text-decoration: none;
-  color: magenta;
+  color: #7c19ff;
 }
 
 #a_title_image_cont {
   width: 100%;
+  max-width: 1920px;
+  height: 54vw;
   margin: 0;
 }
 
@@ -339,7 +350,7 @@ footer {
   margin: auto;
   display: block;
   background-color: #fff;
-  border: magenta 1px solid;
+  border: #7c19ff 1px solid;
   color: #000;
   border-radius: 25px;
   font-size: 1em;
