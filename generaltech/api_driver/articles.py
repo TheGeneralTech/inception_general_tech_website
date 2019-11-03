@@ -2,6 +2,7 @@ import requests
 from requests.exceptions import HTTPError
 import random
 import datetime
+from django.http import Http404
 
 ARTICLE_LIMIT = 20
 FEATURED_LIMIT = 4
@@ -12,12 +13,13 @@ PROJECT_UUID = "7db9b330-e776-11e9-9419-3b512ae6fea5"
 
 class Articles:
 
-    def getContentFromApi(self, parameters, req_type=None):
+    def getContentFromApi(self, parameters, published=True, req_type=None):
         try:
-            if req_type == None:
-                URL = f'{API_ADDR}/{API_VER}/posts/published'
-            else:
-                URL = f'{API_ADDR}/{API_VER}/posts/published/{req_type}'
+            URL = f'{API_ADDR}/{API_VER}/posts'
+            if published:
+                URL += '/published'
+            if req_type != None:
+                URL += f'/{req_type}'
             response = requests.get(URL, params=parameters)
             response.raise_for_status()
         except HTTPError as http_error:
@@ -51,7 +53,7 @@ class Articles:
         featured_articles = featured_articles[1:]
         return main_article, featured_articles, articles
 
-    def getArticlePage(self, article_id, in_short):
+    def getArticleContent(self, article_id, in_short):
         response = self.getContentFromApi(parameters={
             'project': PROJECT_UUID,
             'q_type': 'single',
@@ -60,6 +62,17 @@ class Articles:
         response_dict = response.json()
         response_dict['created_on'] = self.formatCreationDate(response_dict['created_on'])
         response_dict['inshort'] = in_short
+        return response_dict
+
+    def getDraftContent(self, article_id):
+        response = self.getContentFromApi(parameters={
+            'project': PROJECT_UUID,
+            'q_type': 'single',
+            'uuid': article_id
+        }, published=False, req_type="drafts")
+        response_dict = response.json()
+        response_dict['created_on'] = self.formatCreationDate(response_dict['created_on'])
+        response_dict['inshort'] = False
         return response_dict
 
     def getAuthorArticlesAndDetails(self, author_id):
@@ -138,7 +151,7 @@ class Articles:
         selected_articles = []
         for i in range(0,article_count):
             rand_i = random.randint(0,len(articles)) - 1
-            selected_articles.append(self.getArticlePage(articles.pop(rand_i)['url'], True))
+            selected_articles.append(self.getArticleContent(articles.pop(rand_i)['url'], True))
         return selected_articles
 
     def formatArticle(self, article):

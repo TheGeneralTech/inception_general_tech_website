@@ -1,5 +1,5 @@
 # Python temp files
-generaltech/__pycache__/*
+*/__pycache__/*
 
 # VSCode files
 .vscode/*

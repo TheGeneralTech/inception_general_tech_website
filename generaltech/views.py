@@ -33,7 +33,7 @@ class IndexFeedView(View):
 
 class ArticlePageView(View):
     def get(self, request, article_id):
-        article = Articles().getArticlePage(article_id, False)
+        article = Articles().getArticleContent(article_id, False)
         context = getBaseContext()
         context['article'] = article
         return render(request, 'generaltech/article.html', context)
@@ -50,6 +50,14 @@ class RelatedArticleView(View):
             rendered_articles[article['url']] = render_to_string('generaltech/article_template.html', context)
         json_response = { 'articles': rendered_articles }
         return JsonResponse(json_response)
+
+
+class DraftPageView(View):
+    def get(self, request, article_id):
+        context = getBaseContext()
+        article = Articles().getDraftContent(article_id)
+        context['article'] = article
+        return render(request, 'generaltech/article.html', context)
 
 
 class AuthorPageView(View):
@@ -94,8 +102,11 @@ class TagFeedView(View):
             'posts': rendered_posts,
         }
         return JsonResponse(json_response)
-def newsletter(request):
-    pass
+
+
+class NewletterPageView(View):
+    def get(self, request):
+        pass
 
 
 def getBaseContext():
