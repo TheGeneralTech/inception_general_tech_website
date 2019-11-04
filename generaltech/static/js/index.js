@@ -5,7 +5,7 @@ document.addEventListener("scroll", fetchMoreContent);
 
 function fetchMoreContent() {
   if (fetch_more) {
-    if (window.scrollY + 2 * window.innerHeight > document.body.scrollHeight) {
+    if (window.scrollY + 3 * window.innerHeight > document.body.scrollHeight) {
       fetch_more = false;
 
       var request = new XMLHttpRequest();

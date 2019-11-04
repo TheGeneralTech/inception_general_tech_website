@@ -1,17 +1,19 @@
 {% for post in posts %}
 <a class="norm_article_cont" href="{% url 'article_page' post.url %}">
   <img class="norm_article_img" src="{{ post.titleImage }}" alt="" />
-  <summary>
-    <h3 class="article_heading">{{ post.title }}</h3><br>
-    {% if post.shortDescription %}
-    <div class="article_description">
-      <p>{{ post.shortDescription }}</p>
+  <div class="article_summary">
+    <h3>{{ post.title }}</h3>
+    <div class="article_details">
+      {% if post.shortDescription %}
+      <div class="article_description">
+        <p>{{ post.shortDescription }}</p>
+      </div>
+      {% endif %}
+      <span class="article_writer">By {{ post.author.name }}</span>
+      <span class="interpunct"> · </span>
+      <span class="article_publish_date">{{ post.created_on }}</span>
     </div>
-    {% endif %}
-    <span class="article_writer">By {{ post.author.name }}</span>
-    <span class="interpunct"> · </span>
-    <span class="article_publish_date">{{ post.created_on }}</span>
-  </summary>
+  </div>
 </a>
 <hr>
 {% endfor %}
