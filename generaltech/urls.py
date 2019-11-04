@@ -16,7 +16,7 @@ Including another URLconf
 # from django.contrib import admin
 from django.urls import path
 from . import views
-from .views import IndexPageView, IndexFeedView, ArticlePageView, RelatedArticleView, DraftPageView, AuthorPageView, AuthorFeedView, TagPageView, TagFeedView, NewletterPageView
+from .views import IndexPageView, IndexFeedView, ArticlePageView, RelatedArticleView, DraftPageView, AuthorPageView, AuthorFeedView, TagPageView, TagFeedView
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
@@ -28,6 +28,5 @@ urlpatterns = [
     path('author/<slug:author_id>', AuthorPageView.as_view(), name='author_page'),
     path('author/<slug:author_id>/feed/page/<int:page_num>', AuthorFeedView.as_view(), name='author_feed'),
     path('tag/<slug:tag_id>', TagPageView.as_view(), name='tag_page'),
-    path('tag/<slug:tag_id>/feed/page/<int:page_num>', TagFeedView.as_view(), name='tag_feed'),
-    path('newsletter', NewletterPageView.as_view(), name='newsletter_page'),
+    path('tag/<slug:tag_id>/feed/page/<int:page_num>', TagFeedView.as_view(), name='tag_feed')
 ]

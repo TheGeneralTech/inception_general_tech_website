@@ -1,8 +1,9 @@
 @import './variables';
 
 body {
+  width: 100%;
   margin: 0;
-  background-color: #fff;
+  background-color: $background_color;
   word-wrap: break-word;
 }
 
@@ -76,6 +77,8 @@ header {
   justify-content: end;
   #sub_newsletter {
     display: block;
+    background-color: $background_color;
+    border: 0;
     text-decoration: none;
     margin-left: auto;
     color: $font_color;
@@ -83,8 +86,13 @@ header {
     flex-direction: row;
     align-items: center;
     padding: 4px;
+    cursor: pointer;
     svg {
       margin-right: 4px;
+    }
+    p {
+      display: inline;
+      margin: 0;
     }
   }
 }
@@ -112,6 +120,66 @@ header {
   img {
     width: 100%;
     background-color: unset;
+  }
+}
+
+#newsletter_sub_cont {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, .4);
+  #newsletter_sub {
+    width: 100%;
+    max-width: 600px;
+    margin: 12px;
+    padding: 24px;
+    padding-right: 40px;
+    background-color: $background_color;
+    border-radius: 5px;
+    position: relative;
+    #close_sub_cont_btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40px;
+      height: 40px;
+      background-color: transparent;
+      border: 0;
+      cursor: pointer;
+      align-items: center;
+      svg {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 16px;
+        height: 16px;
+      }
+    }
+    h2 {
+      margin: 0;
+    }
+    input {
+      width: 20em;
+      padding: 8px;
+      margin-top: 24px;
+      border: 1px solid $border_color_dark;
+      border-radius: 3px;
+    }
+    #sub_btn {
+      margin-top: 24px;
+      background-color: $accent_color;
+      border: 1px solid $border_color;
+      border-radius: 3px;
+      color: $font_color_neg_dark;
+      cursor: pointer;
+      padding: 8px;
+      font-size: 1.2em;
+    }
   }
 }
 

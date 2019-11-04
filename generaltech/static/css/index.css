@@ -1,4 +1,5 @@
 body {
+  width: 100%;
   margin: 0;
   background-color: #fff;
   word-wrap: break-word;
@@ -94,6 +95,8 @@ header {
 
 #header_menu #sub_newsletter {
   display: block;
+  background-color: #fff;
+  border: 0;
   text-decoration: none;
   margin-left: auto;
   color: #000;
@@ -108,10 +111,16 @@ header {
       -ms-flex-align: center;
           align-items: center;
   padding: 4px;
+  cursor: pointer;
 }
 
 #header_menu #sub_newsletter svg {
   margin-right: 4px;
+}
+
+#header_menu #sub_newsletter p {
+  display: inline;
+  margin: 0;
 }
 
 #social_links {
@@ -143,6 +152,78 @@ header {
 #logo img {
   width: 100%;
   background-color: unset;
+}
+
+#newsletter_sub_cont {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#newsletter_sub_cont #newsletter_sub {
+  width: 100%;
+  max-width: 600px;
+  margin: 12px;
+  padding: 24px;
+  padding-right: 40px;
+  background-color: #fff;
+  border-radius: 5px;
+  position: relative;
+}
+
+#newsletter_sub_cont #newsletter_sub #close_sub_cont_btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#newsletter_sub_cont #newsletter_sub #close_sub_cont_btn svg {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 16px;
+  height: 16px;
+}
+
+#newsletter_sub_cont #newsletter_sub h2 {
+  margin: 0;
+}
+
+#newsletter_sub_cont #newsletter_sub input {
+  width: 20em;
+  padding: 8px;
+  margin-top: 24px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+#newsletter_sub_cont #newsletter_sub #sub_btn {
+  margin-top: 24px;
+  background-color: #7c19ff;
+  border: 1px solid #e8e8e8;
+  border-radius: 3px;
+  color: #ddd;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 1.2em;
 }
 
 /* header ends */
@@ -281,12 +362,12 @@ header {
   height: 28px;
   padding: 5px;
   margin-left: 8px;
-  border: 1px solid #7c19ff;
+  border: 1px solid #333;
   border-radius: 3px;
 }
 
 #side_articles header div svg {
-  fill: #7c19ff;
+  fill: #333;
 }
 
 #side_articles header p {

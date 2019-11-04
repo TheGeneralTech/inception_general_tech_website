@@ -21,12 +21,12 @@
             </a>
             <div id="header_menu">
                 <p id="date_today">{{ date }} </p>
-                <a id="sub_newsletter" href="{% url 'newsletter_page' %}">
+                <button id="sub_newsletter" onclick="showNewsletterSub();">
                     <svg viewBox="0 0 100 100" width="16" height="16">
                         <use xlink:href="#icon-newspaper"></use>
                     </svg>
-                    <figcaption>Newsletter</figcaption>
-                </a>
+                    <p>Newsletter</p>
+                </button>
                 <div id="social_links">
                     <a id="facebook_link" href="fix_me" title="facebook">
                         <svg viewBox="0 0 100 100" width="16" height="16">
@@ -49,6 +49,28 @@
     </header>
     <div id="advert_top"></div>
     {% block content %}{% endblock %}
+    <div id="newsletter_sub_cont">
+        <div id="newsletter_sub">
+            <button id="close_sub_cont_btn" onclick="hideNewsletterSub()">
+                <svg viewBox="0 0 16 16" width="16" height="16">
+                    <use xlink:href="#icon-clear"></use>
+                </svg>
+            </button>
+            <h2>Enter your email to get a weekly newsletter from us</h2>
+            <input type="text" name="sub_email" placeholder="Your Email" /><br>
+            <button id="sub_btn">Subscribe</button>
+        </div>
+    </div>
+    <script>
+        function showNewsletterSub(){
+            document.body.style = "position: fixed;"
+            document.getElementById("newsletter_sub_cont").style = "display: flex;"
+        }
+        function hideNewsletterSub(){
+            document.body.style = ""
+            document.getElementById("newsletter_sub_cont").style = ""
+        }
+    </script>
 </body>
 
 </html>

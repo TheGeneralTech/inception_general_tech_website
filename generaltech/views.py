@@ -105,10 +105,5 @@ class TagFeedView(View):
         return JsonResponse(json_response)
 
 
-class NewletterPageView(View):
-    def get(self, request):
-        pass
-
-
 def getBaseContext():
     return { 'date': datetime.datetime.now().strftime("%A, %d %b %Y") }
