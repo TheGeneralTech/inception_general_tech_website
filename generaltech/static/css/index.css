@@ -522,6 +522,7 @@ header {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 140px;
             flex: 0 0 140px;
+    margin-right: 24px;
   }
   .norm_article_cont .article_summary {
     -webkit-box-flex: 1;
@@ -546,7 +547,7 @@ header {
         -ms-flex-order: 3;
             order: 3;
     margin-right: 12px;
-    font-size: 1.4em;
+    font-size: 1.6em;
     -webkit-box-flex: 1;
         -ms-flex: 1 1 150px;
             flex: 1 1 150px;

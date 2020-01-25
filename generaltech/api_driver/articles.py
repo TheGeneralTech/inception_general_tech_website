@@ -7,9 +7,9 @@ from django.http import Http404
 ARTICLE_LIMIT = 20
 FEATURED_LIMIT = 4
 RELATED_ARTICLE_COUNT = 5
-API_ADDR = "https://api.pinkadda.com"
+API_ADDR = "https://api.generaltech.in"
 API_VER = "v1"
-PROJECT_UUID = "7db9b330-e776-11e9-9419-3b512ae6fea5"
+PROJECT_UUID = "7a278bc0-e776-11e9-9419-3b512ae6fea5"
 
 class Articles:
 

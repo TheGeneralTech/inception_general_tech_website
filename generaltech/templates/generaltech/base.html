@@ -3,13 +3,14 @@
 <html>
 
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Raleway:700,400&display=swap" rel="stylesheet">
-    {% block stylesheets %}{% endblock %}
-    {% block scripts %}{% endblock %}
     <title>{% block title %}General Tech{% endblock %}</title>
     <meta name="description" content="{% block description %}{% endblock %}">
     <meta name="keywords" content="{% block keywords %}{% endblock %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:700,400&display=swap" rel="stylesheet">
+    {% block stylesheets %}{% endblock %}
+    {% block scripts %}{% endblock %}
+    <script src="{% static 'js/lazy_image_load.js' %}"></script>
 </head>
 
 <body>

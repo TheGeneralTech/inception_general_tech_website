@@ -1,6 +1,6 @@
 {% for post in posts %}
 <a class="norm_article_cont" href="{% url 'article_page' post.url %}">
-  <img class="norm_article_img" src="{{ post.titleImage }}" alt="" />
+  <img class="norm_article_img lazy" data-src="{{ post.titleImage }}" alt="" />
   <div class="article_summary">
     <h3>{{ post.title }}</h3>
     <div class="article_details">
