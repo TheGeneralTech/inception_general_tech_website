@@ -125,3 +125,16 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = '/var/generaltech/static'
+
+
+# Acticle Page Settings
+
+ARTICLE_LIMIT = 20
+FEATURED_LIMIT = 4
+RELATED_ARTICLE_COUNT = 5
+WEBSITE_ADDR = "https://generaltech.in"
+API_ADDR = "https://api.generaltech.in"
+API_VER = "v1"
+PROJECT_UUID = "7a278bc0-e776-11e9-9419-3b512ae6fea5"
+TWITTER_ACC = "GeneralTech__"
+FACEBOOK_ACC = "generaltechblog"

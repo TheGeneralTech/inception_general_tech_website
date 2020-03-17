@@ -5,6 +5,7 @@ from django.views import View
 
 import datetime
 
+from django.conf import settings
 from .api_driver.articles import Articles
 
 
@@ -106,4 +107,8 @@ class TagFeedView(View):
 
 
 def getBaseContext():
-    return { 'date': datetime.datetime.now().strftime("%A, %d %b %Y") }
+    return {
+        'date': datetime.datetime.now().strftime("%A, %d %b %Y"),
+        'facebook_link': f'https://www.facebook.com/{settings.FACEBOOK_ACC}',
+        'twitter_link': f'https://twitter.com/{settings.TWITTER_ACC}',
+    }

@@ -7,6 +7,7 @@
     <meta name="description" content="{% block description %}{% endblock %}">
     <meta name="keywords" content="{% block keywords %}{% endblock %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block metas %}{% endblock %}
     <link href="https://fonts.googleapis.com/css?family=Raleway:700,400&display=swap" rel="stylesheet">
     {% block stylesheets %}{% endblock %}
     {% block scripts %}{% endblock %}
@@ -29,12 +30,12 @@
                     <p>Newsletter</p>
                 </button>
                 <div id="social_links">
-                    <a id="facebook_link" href="fix_me" title="facebook">
+                    <a id="facebook_link" href="{{ facebook_link }}" title="facebook">
                         <svg viewBox="0 0 100 100" width="16" height="16">
                             <use xlink:href="#icon-facebook"></use>
                         </svg>
                     </a>
-                    <a id="twitter_link" href="fix_me" title="twitter">
+                    <a id="twitter_link" href="{{ twitter_link }}" title="twitter">
                         <svg viewBox="0 0 100 100" width="16" height="16">
                             <use xlink:href="#icon-twitter"></use>
                         </svg>

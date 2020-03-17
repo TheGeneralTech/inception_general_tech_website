@@ -4,18 +4,13 @@ import random
 import datetime
 from django.http import Http404
 
-ARTICLE_LIMIT = 20
-FEATURED_LIMIT = 4
-RELATED_ARTICLE_COUNT = 5
-API_ADDR = "https://api.generaltech.in"
-API_VER = "v1"
-PROJECT_UUID = "7a278bc0-e776-11e9-9419-3b512ae6fea5"
+from django.conf import settings
 
 class Articles:
 
     def getContentFromApi(self, parameters, published=True, req_type=None):
         try:
-            URL = f'{API_ADDR}/{API_VER}/posts'
+            URL = f'{settings.API_ADDR}/{settings.API_VER}/posts'
             if published:
                 URL += '/published'
             if req_type != None:
@@ -33,8 +28,8 @@ class Articles:
 
     def getIndexPageArticles(self):
         response = self.getContentFromApi(parameters={
-            'project': PROJECT_UUID,
-            'limit': ARTICLE_LIMIT,
+            'project': settings.PROJECT_UUID,
+            'limit': settings.ARTICLE_LIMIT,
             'offset': '0'
         })
         response_dict = response.json()
@@ -42,8 +37,8 @@ class Articles:
         articles = list(map(self.formatArticle, articles))
         tags = response_dict['topTags']
         response = self.getContentFromApi(parameters={
-            'project': PROJECT_UUID,
-            'limit': FEATURED_LIMIT,
+            'project': settings.PROJECT_UUID,
+            'limit': settings.FEATURED_LIMIT,
             'offset': '0'
         }, req_type = "featured")
         response_dict = response.json()
@@ -55,31 +50,35 @@ class Articles:
 
     def getArticleContent(self, article_id, in_short):
         response = self.getContentFromApi(parameters={
-            'project': PROJECT_UUID,
+            'project': settings.PROJECT_UUID,
             'q_type': 'single',
             'url': article_id
         })
         response_dict = response.json()
         response_dict['created_on'] = self.formatCreationDate(response_dict['created_on'])
         response_dict['inshort'] = in_short
+        response_dict['url'] = f'{settings.WEBSITE_ADDR}/article/{response_dict["url"]}'
+        response_dict['twitter_acc'] = settings.TWITTER_ACC
         return response_dict
 
     def getDraftContent(self, article_id):
         response = self.getContentFromApi(parameters={
-            'project': PROJECT_UUID,
+            'project': settings.PROJECT_UUID,
             'q_type': 'single',
             'uuid': article_id
         }, published=False, req_type="drafts")
         response_dict = response.json()
         response_dict['created_on'] = self.formatCreationDate(response_dict['created_on'])
         response_dict['inshort'] = False
+        response_dict['url'] = f'{settings.WEBSITE_ADDR}/draft/{response_dict["url"]}'
+        response_dict['twitter_acc'] = settings.TWITTER_ACC
         return response_dict
 
     def getAuthorArticlesAndDetails(self, author_id):
         response = self.getContentFromApi(parameters={
-            'project': PROJECT_UUID,
+            'project': settings.PROJECT_UUID,
             'q_type': 'default',
-            'limit': ARTICLE_LIMIT,
+            'limit': settings.ARTICLE_LIMIT,
             'offset': '0',
             'authorUsername': author_id
         }, req_type = "authors")
@@ -90,9 +89,9 @@ class Articles:
 
     def getTagArticlesAndDetails(self, tag_id):
         response = self.getContentFromApi(parameters={
-            'project': PROJECT_UUID,
+            'project': settings.PROJECT_UUID,
             'q_type': 'default',
-            'limit': ARTICLE_LIMIT,
+            'limit': settings.ARTICLE_LIMIT,
             'offset': '0',
             'tag': tag_id
         }, req_type = "tags")
@@ -103,9 +102,9 @@ class Articles:
 
     def getIndexFeedArticles(self, page_num):
         response = self.getContentFromApi(parameters={
-            'project': PROJECT_UUID,
-            'limit': ARTICLE_LIMIT,
-            'offset': page_num * ARTICLE_LIMIT
+            'project': settings.PROJECT_UUID,
+            'limit': settings.ARTICLE_LIMIT,
+            'offset': page_num * settings.ARTICLE_LIMIT
         })
         response_dict = response.json()
         articles = response_dict['posts']
@@ -114,10 +113,10 @@ class Articles:
 
     def getAuthorFeedArticles(self, author_id, page_num):
         response = self.getContentFromApi(parameters={
-            'project': PROJECT_UUID,
+            'project': settings.PROJECT_UUID,
             'q_type': 'default',
-            'limit': ARTICLE_LIMIT,
-            'offset': page_num * ARTICLE_LIMIT,
+            'limit': settings.ARTICLE_LIMIT,
+            'offset': page_num * settings.ARTICLE_LIMIT,
             'authorUsername': author_id
         }, req_type = "authors")
         response_dict = response.json()
@@ -127,10 +126,10 @@ class Articles:
 
     def getTagFeedArticles(self, tag_id, page_num):
         response = self.getContentFromApi(parameters={
-            'project': PROJECT_UUID,
+            'project': settings.PROJECT_UUID,
             'q_type': 'default',
-            'limit': ARTICLE_LIMIT,
-            'offset': page_num * ARTICLE_LIMIT,
+            'limit': settings.ARTICLE_LIMIT,
+            'offset': page_num * settings.ARTICLE_LIMIT,
             'tag': tag_id
         }, req_type = "tags")
         response_dict = response.json()
@@ -139,9 +138,9 @@ class Articles:
         return articles, response_dict['hasMore']
 
     def getRelatedArticles(self, article_id):
-        article_count = RELATED_ARTICLE_COUNT
+        article_count = settings.RELATED_ARTICLE_COUNT
         response = self.getContentFromApi(parameters={
-            'project': PROJECT_UUID,
+            'project': settings.PROJECT_UUID,
             'limit': '100',
             'offset': '0'
         })

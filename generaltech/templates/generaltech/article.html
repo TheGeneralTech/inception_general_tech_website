@@ -1,6 +1,28 @@
 {% extends "generaltech/base.html" %}
 {% load static %}
 
+{% block metas %}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@{{ article.twitter_acc }}" />
+<meta name="twitter:creator" content="@{{ article.twitter_acc }}" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="{{ article.url }}" />
+<meta property="og:title" content="{{ article.title }}" />
+{% if article.shortDescription %}
+<meta property="og:description" content="{{ article.shortDescription }}" />
+{% endif %}
+<meta property="og:image" content="{{ article.titleImage }}" />
+<meta property="og:image:alt" content="Image" />
+<meta property="article:published_time" content="{{ article.created_on }}" />
+<meta property="article:modified_time" content="{{ article.created_on }}" />
+<meta property="article:author" content="{{ article.author.name }}" />
+{% if article.tags %}
+    {% for tag in article.tags %}
+    <meta property="article:tag" content="{{ tag.tag }}" />
+    {% endfor %}
+{% endif %}
+{% endblock%}
+
 {% block stylesheets %}
 <link rel="stylesheet" href="{% static 'css/article.css' %}" />
 {% endblock %}
