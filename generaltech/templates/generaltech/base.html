@@ -23,7 +23,8 @@
             </a>
             <div id="header_menu">
                 <p id="date_today">{{ date }} </p>
-                <button id="sub_newsletter" onclick="showNewsletterSub();">
+                <div id="sub_newsletter"></div>
+                <button id="sub_newsletter" onclick="showNewsletterSub();" style="display: none!important">
                     <svg viewBox="0 0 100 100" width="16" height="16">
                         <use xlink:href="#icon-newspaper"></use>
                     </svg>
@@ -40,7 +41,7 @@
                             <use xlink:href="#icon-twitter"></use>
                         </svg>
                     </a>
-                    <a id="facebook_link" href="fix_me" title="rss">
+                    <a id="rss_link" href="fix_me" title="rss" style="display: none!important">
                         <svg viewBox="0 0 100 100" width="16" height="16">
                             <use xlink:href="#icon-rss"></use>
                         </svg>
