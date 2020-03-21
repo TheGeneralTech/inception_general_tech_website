@@ -29,7 +29,7 @@ SECRET_KEY = config.get('django','SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [config.get('django','HOST')]
+ALLOWED_HOSTS = list(config.get('django','HOST').split(','))
 
 
 # Application definition
