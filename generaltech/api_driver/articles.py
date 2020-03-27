@@ -48,28 +48,34 @@ class Articles:
         featured_articles = featured_articles[1:]
         return main_article, featured_articles, articles, tags
 
-    def getArticleContent(self, article_id, in_short):
+    def getArticleContent(self, article_url):
         response = self.getContentFromApi(parameters={
             'project': settings.PROJECT_UUID,
             'q_type': 'single',
-            'url': article_id
+            'url': article_url,
+            'suggestions': settings.RELATED_ARTICLE_COUNT
         })
         response_dict = response.json()
         response_dict['created_on'] = self.formatCreationDate(response_dict['created_on'])
-        response_dict['inshort'] = in_short
+        response_dict['suggestions'] = list(map(
+            self.formatArticle, response_dict['suggestions']
+        ))
         response_dict['url'] = f'{settings.WEBSITE_ADDR}/article/{response_dict["url"]}'
         response_dict['twitter_acc'] = settings.TWITTER_ACC
         return response_dict
 
-    def getDraftContent(self, article_id):
+    def getDraftContent(self, article_uuid):
         response = self.getContentFromApi(parameters={
             'project': settings.PROJECT_UUID,
             'q_type': 'single',
-            'uuid': article_id
+            'uuid': article_uuid,
+            'suggestions': settings.RELATED_ARTICLE_COUNT
         }, published=False, req_type="drafts")
         response_dict = response.json()
         response_dict['created_on'] = self.formatCreationDate(response_dict['created_on'])
-        response_dict['inshort'] = False
+        response_dict['suggestions'] = list(map(
+            self.formatArticle, response_dict['suggestions']
+        ))
         response_dict['url'] = f'{settings.WEBSITE_ADDR}/draft/{response_dict["url"]}'
         response_dict['twitter_acc'] = settings.TWITTER_ACC
         return response_dict
@@ -136,22 +142,6 @@ class Articles:
         articles = response_dict['posts']
         articles = list(map(self.formatArticle, articles))
         return articles, response_dict['hasMore']
-
-    def getRelatedArticles(self, article_id):
-        article_count = settings.RELATED_ARTICLE_COUNT
-        response = self.getContentFromApi(parameters={
-            'project': settings.PROJECT_UUID,
-            'limit': '100',
-            'offset': '0'
-        })
-        response_dict = response.json()
-        articles = response_dict['posts']
-        # Randomly select required articles
-        selected_articles = []
-        for i in range(0,article_count):
-            rand_i = random.randint(0,len(articles)) - 1
-            selected_articles.append(self.getArticleContent(articles.pop(rand_i)['url'], True))
-        return selected_articles
 
     def formatArticle(self, article):
         article['created_on'] = self.formatCreationDate(article['created_on'])

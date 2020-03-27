@@ -131,7 +131,7 @@ STATIC_ROOT = 'static'
 
 ARTICLE_LIMIT = 20
 FEATURED_LIMIT = 4
-RELATED_ARTICLE_COUNT = 5
+RELATED_ARTICLE_COUNT = 3
 WEBSITE_ADDR = "https://generaltech.in"
 API_ADDR = "https://api.generaltech.in"
 API_VER = "v1"

@@ -34,30 +34,17 @@ class IndexFeedView(View):
 
 
 class ArticlePageView(View):
-    def get(self, request, article_id):
-        article = Articles().getArticleContent(article_id, False)
+    def get(self, request, article_url):
+        article = Articles().getArticleContent(article_url)
         context = getBaseContext()
         context['article'] = article
         return render(request, 'generaltech/article.html', context)
 
 
-class RelatedArticleView(View):
-    def get(self, request, article_id):
-        """Return related articles"""
-        context = getBaseContext()
-        related_articles = Articles().getRelatedArticles(article_id)
-        rendered_articles = {}
-        for article in related_articles:
-            context['article'] = article
-            rendered_articles[article['url']] = render_to_string('generaltech/article_template.html', context)
-        json_response = { 'articles': rendered_articles }
-        return JsonResponse(json_response)
-
-
 class DraftPageView(View):
-    def get(self, request, article_id):
+    def get(self, request, article_uuid):
         context = getBaseContext()
-        article = Articles().getDraftContent(article_id)
+        article = Articles().getDraftContent(article_uuid)
         context['article'] = article
         return render(request, 'generaltech/article.html', context)
 

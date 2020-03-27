@@ -24,15 +24,17 @@
 {% endblock%}
 
 {% block stylesheets %}
-<link rel="stylesheet" href="{% static 'css/article.css' %}" />
-{% endblock %}
-
-{% block scripts %}
-<script src="{% static 'js/article.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/article.min.css' %}" />
 {% endblock %}
 
 {% block content %}
 {% include 'generaltech/article-symbol-defs.svg' %}
 <div id="below_div_advert"></div>
 {% include 'generaltech/article_template.html' with article=article %}
+
+<div class="suggested_articles">
+    <div class="norm_articles">
+    {% include 'generaltech/normal_articles.html' with posts=article.suggestions %}
+    </div>
+</div>
 {% endblock %}

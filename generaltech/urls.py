@@ -16,15 +16,14 @@ Including another URLconf
 # from django.contrib import admin
 from django.urls import path
 from . import views
-from .views import IndexPageView, IndexFeedView, ArticlePageView, RelatedArticleView, DraftPageView, AuthorPageView, AuthorFeedView, TagPageView, TagFeedView
+from .views import IndexPageView, IndexFeedView, ArticlePageView, DraftPageView, AuthorPageView, AuthorFeedView, TagPageView, TagFeedView
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('', IndexPageView.as_view(), name='index_page'),
     path('feed/page/<int:page_num>', IndexFeedView.as_view(), name='index_feed'),
-    path('article/<slug:article_id>', ArticlePageView.as_view(), name='article_page'),
-    path('article/<slug:article_id>/related', RelatedArticleView.as_view(), name='article_related_feed'),
-    path('draft/<slug:article_id>', DraftPageView.as_view(), name='draft_page'),
+    path('article/<slug:article_url>', ArticlePageView.as_view(), name='article_page'),
+    path('draft/<slug:article_uuid>', DraftPageView.as_view(), name='draft_page'),
     path('author/<slug:author_id>', AuthorPageView.as_view(), name='author_page'),
     path('author/<slug:author_id>/feed/page/<int:page_num>', AuthorFeedView.as_view(), name='author_feed'),
     path('tag/<slug:tag_id>', TagPageView.as_view(), name='tag_page'),

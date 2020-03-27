@@ -122,31 +122,13 @@ footer {
   font-size: 0.9em;
 }
 
-.show_more_cont {
+.suggested_articles {
   width: 100%;
-  height: 40px + $standard_sep*4;
-  background: linear-gradient(to top, $background_color, rgba(255,255,255,0));
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: $standard_sep*2 $standard_sep;
-  .show_more_btn {
-    width: 180px;
-    height: 40px;
-    margin: auto;
-    display: block;
-    background-color: $background_color;
-    border: $accent_color 1px solid;
-    color: $font_color;
-    border-radius: 25px;
-    font-size: 1em;
-    padding: $standard_sep/2 $standard_sep;
-    cursor: pointer; 
-  }
-  p {
-    margin: 0;
-    display: inline;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding-bottom: $standard_sep;
 }
 
 /* Responsive config */
@@ -188,3 +170,6 @@ footer {
 }
 
 /* Responsive config ends */
+
+// For Suggested Articles
+@import './normal_articles'
