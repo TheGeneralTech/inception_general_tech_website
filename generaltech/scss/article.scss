@@ -11,7 +11,6 @@ article {
   padding: 24px 0;
   align-items: center;
   flex-direction: column;
-  border-bottom: 1px solid $border_color;
   position: relative;
 }
 article:nth-of-type(n+2) {
@@ -23,6 +22,7 @@ article:nth-of-type(n+2) {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  max-width: $normal_articles_width;
   padding: 0;
 }
 #title_and_desc {
@@ -36,14 +36,11 @@ article:nth-of-type(n+2) {
 }
 #a_title_image_cont {
   width: 100%;
-  max-width: 1920px;
-  max-height: 1080px;
+  max-height: 100vh;
   margin: 0;
 }
 #a_title_image_cont img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 #title_and_desc h1,
 #title_and_desc h4 {
@@ -136,10 +133,6 @@ footer {
 @media only screen and (min-width: 750px) {
   #title_and_desc h1 {
     font-size: 2em;
-  }
-  #a_title_image_cont {
-    height: 41.66vw;
-    max-height: 800px;
   }
   /* #article_header {
     flex-direction: row;

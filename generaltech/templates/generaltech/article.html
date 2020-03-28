@@ -34,7 +34,9 @@
 
 <div class="suggested_articles">
     <div class="norm_articles">
-    {% include 'generaltech/normal_articles.html' with posts=article.suggestions %}
+        <hr>
+        {% include 'generaltech/normal_articles.html' with posts=article.suggestions %}
+        <hr>
     </div>
 </div>
 {% endblock %}
