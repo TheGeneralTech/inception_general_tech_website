@@ -53,6 +53,10 @@ img {
   background-color: #ddd;
 }
 
+img.lazy {
+  opacity: 0;
+}
+
 /* header */
 header {
   width: 100%;

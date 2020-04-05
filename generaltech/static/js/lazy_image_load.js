@@ -34,6 +34,7 @@ function lazyLoadingWithIntersectionObserver() {
         let lazyImage = entry.target;
         
         lazyImage.src = `${lazyImage.dataset.src}?w=${lazyImage.offsetWidth}&h=${lazyImage.offsetHeight}`;
+        lazyImage.style.transition = 'opacity .3s ease-in';
         lazyImage.classList.remove("lazy");
         lazyImageObserver.unobserve(lazyImage);
       }
