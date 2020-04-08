@@ -32,7 +32,7 @@ function lazyLoadingWithIntersectionObserver() {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
         let lazyImage = entry.target;
-        lazyImage.onload = lazyLoadAnim(lazyImage);
+        lazyImage.onload = lazyLoadAnim;
         lazyImage.src = `${lazyImage.dataset.src}?w=${lazyImage.offsetWidth}&h=${lazyImage.offsetHeight}`;
         lazyImageObserver.unobserve(lazyImage);
       }
@@ -56,7 +56,7 @@ function lazyLoadingWihtoutIntersectionObserver() {
       setTimeout(function() {
         lazyImages.forEach(function(lazyImage) {
           if ((lazyImage.getBoundingClientRect().top <= window.innerHeight && lazyImage.getBoundingClientRect().bottom >= 0) && getComputedStyle(lazyImage).display !== "none") {
-            lazyImage.onload = lazyLoadAnim(lazyImage);
+            lazyImage.onload = lazyLoadAnim;
             lazyImage.src = `${lazyImage.dataset.src}?w=${lazyImage.offsetWidth}&h=${lazyImage.offsetHeight}`;
 
             lazyImages = lazyImages.filter(function(image) {
@@ -84,8 +84,8 @@ function lazyLoadingWihtoutIntersectionObserver() {
 }
 
 
-function lazyLoadAnim(lazyImage){
-  lazyImage.style.transition = 'opacity .3s ease-in';
-  lazyImage.style.opacity = 1.0;
-  lazyImage.classList.remove("lazy");
+function lazyLoadAnim(){
+  this.style.transition = 'opacity .3s ease-in';
+  this.style.opacity = 1.0;
+  this.classList.remove("lazy");
 }
