@@ -11,7 +11,7 @@
 {% if article.shortDescription %}
 <meta property="og:description" content="{{ article.shortDescription }}" />
 {% endif %}
-<meta property="og:image" content="{{ article.titleImage }}" />
+<meta property="og:image" content="{{ article.titleImage.src }}" />
 <meta property="og:image:alt" content="Image" />
 <meta property="article:published_time" content="{{ article.created_on }}" />
 <meta property="article:modified_time" content="{{ article.created_on }}" />
