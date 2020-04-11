@@ -85,5 +85,5 @@ function lazyLoadingWihtoutIntersectionObserver() {
 function lazyLoadAnim(){
   this.style.transition = 'opacity .3s ease-in';
   this.style.opacity = 1.0;
-  this.style.height = "auto";
+  this.style.height = "100%";
 }
