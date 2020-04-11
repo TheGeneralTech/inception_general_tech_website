@@ -5,14 +5,14 @@
             {% if article.shortDescription %}
             <p>{{ article.shortDescription }}</p>
             {% endif %}
-            <span id="writer">By <a href="{% url 'author_page' article.author.username %}">{{ article.author.name }}</a></span>
+            <span id="writer">By <a href="{% url 'author_page' article.author.username %}" rel="author">{{ article.author.name }}</a></span>
             <span><strong>&#183;</strong></span>
             <span id="publish_date">
                 {{ article.created_on }}
             </span>
         </div>
         <figure id="a_title_image_cont">
-            <img src="{{ article.titleImage }}" width="500" />
+        <img class="lazy" data-src="{{ article.titleImage.src }}" width="{{ article.titleImage.width }}" height="{{ article.titleImage.height }}" />
             <!-- <figcaption>
                 <p></p>
             </figcaption> -->

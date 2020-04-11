@@ -10,10 +10,42 @@
 {% endblock %}
 
 {% block content %}
+{% include 'generaltech/author-defs.svg' %}
 <div id="main">
   <div id="author_info">
     <p>Articles written by</p>
     <h1>{{ author.name }}</h1>
+    <div>
+      {% if author.socialTwitter %}
+      <a href="{{ author.socialTwitter }}" title="Twitter">
+        <svg viewBox="0 0 18 18" width="18" height="18">
+            <use xlink:href="#icon-twitter"></use>
+        </svg>
+      </a>
+      {% endif %}
+      {% if author.socialFacebook %}
+      <a href="{{ author.socialFacebook }}" title="Facebook">
+        <svg viewBox="0 0 18 18" width="18" height="18">
+            <use xlink:href="#icon-facebook"></use>
+        </svg>
+      </a>
+      {% endif %}
+      {% if author.socialLinkedin %}
+      <a href="{{ author.socialLinkedin }}" title="LinkedIn">
+        <svg viewBox="0 0 18 18" width="18" height="18">
+            <use xlink:href="#icon-linkedin"></use>
+        </svg>
+      </a>
+      {% endif %}
+      {% if author.socialInstagram %}
+      <a href="{{ author.socialInstagram }}" title="Instagram">
+        <svg viewBox="0 0 18 18" width="18" height="18">
+            <use xlink:href="#icon-instagram"></use>
+        </svg>
+      </a>
+      {% endif %}
+      
+    </div>
   </div>
   <div class="norm_articles">
     {% include "generaltech/normal_articles.html" %}

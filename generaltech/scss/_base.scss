@@ -110,14 +110,16 @@ header {
       #social_links {
         padding: 2px;
         flex-shrink: 0;
-        a svg {
-          width: 16px;
-          height: 16px;
-          margin: 4px 0 4px 16px;
-          float: left;
-
-          @media only screen and (min-width: $page_width_lim4) {
-            margin: 4px 0 4px 8px;
+        a {
+          display: inline-block;
+          text-decoration: none;
+          width: 18px;
+          height: 18px;
+          margin: 4px 0 4px 12px;
+          svg {
+            width: 100%;
+            height: 100%;
+            fill: $font_color_light;
           }
         }
       }

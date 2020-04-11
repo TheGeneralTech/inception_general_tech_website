@@ -32,8 +32,10 @@ function lazyLoadingWithIntersectionObserver() {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
         let lazyImage = entry.target;
+        lazyImage.style.opacity = 0.0;
         lazyImage.onload = lazyLoadAnim;
         lazyImage.src = `${lazyImage.dataset.src}?w=${lazyImage.offsetWidth}&h=${lazyImage.offsetHeight}`;
+        lazyImage.classList.remove("lazy");
         lazyImageObserver.unobserve(lazyImage);
       }
     });
@@ -56,9 +58,10 @@ function lazyLoadingWihtoutIntersectionObserver() {
       setTimeout(function() {
         lazyImages.forEach(function(lazyImage) {
           if ((lazyImage.getBoundingClientRect().top <= window.innerHeight && lazyImage.getBoundingClientRect().bottom >= 0) && getComputedStyle(lazyImage).display !== "none") {
+            lazyImage.style.opacity = 0.0;
             lazyImage.onload = lazyLoadAnim;
             lazyImage.src = `${lazyImage.dataset.src}?w=${lazyImage.offsetWidth}&h=${lazyImage.offsetHeight}`;
-
+            lazyImage.classList.remove("lazy");
             lazyImages = lazyImages.filter(function(image) {
               return image !== lazyImage;
             });
@@ -87,5 +90,4 @@ function lazyLoadingWihtoutIntersectionObserver() {
 function lazyLoadAnim(){
   this.style.transition = 'opacity .3s ease-in';
   this.style.opacity = 1.0;
-  this.classList.remove("lazy");
 }
