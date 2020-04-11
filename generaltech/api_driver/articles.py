@@ -56,7 +56,6 @@ class Articles:
             'suggestions': settings.RELATED_ARTICLE_COUNT
         })
         response_dict = response.json()
-        response_dict['titleImage']['height_perc'] = 1/response_dict['titleImage']['data-aspect-ratio']*100
         response_dict['created_on'] = self.formatCreationDate(response_dict['created_on'])
         response_dict['suggestions'] = list(map(
             self.formatArticle, response_dict['suggestions']

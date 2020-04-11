@@ -1,22 +1,16 @@
-const maxImageHeight = 500;
+'use strict';
 
+function setTempDims(tempImage){
+  if (tempImage.attributes["data-aspect-ratio"] && tempImage.attributes["data-aspect-ratio"].value) {
+    let imageHeight = (tempImage.offsetWidth / tempImage.attributes["data-aspect-ratio"].value);
+    tempImage.style.height = imageHeight + 'px';
+  }
+}
 
 document.addEventListener("DOMContentLoaded", function() {
 
-  const imgInPost = document.querySelectorAll('#article_content img');
-  imgInPost.forEach(tempImage => {
-    if (tempImage.attributes["data-aspect-ratio"] && tempImage.attributes["data-aspect-ratio"].value) {
-      let imageWidth = tempImage.offsetWidth;
-      let imageHeight = (tempImage.offsetWidth / tempImage.attributes["data-aspect-ratio"].value);
-      if (imageHeight > maxImageHeight) {
-        const resizeFactor = maxImageHeight / imageHeight;
-        imageHeight = maxImageHeight;
-        imageWidth *= resizeFactor;
-      }
-      tempImage.style.width = imageWidth + 'px';
-      tempImage.style.height = imageHeight + 'px';
-    }
-  })
+  document.querySelectorAll('#article_content img').forEach(setTempDims)
+  document.querySelectorAll('#a_title_image_cont img').forEach(setTempDims)
 
   if ("IntersectionObserver" in window) {
     lazyLoadingWithIntersectionObserver();
@@ -34,6 +28,7 @@ function lazyLoadingWithIntersectionObserver() {
         let lazyImage = entry.target;
         lazyImage.style.opacity = 0.0;
         lazyImage.onload = lazyLoadAnim;
+        setTempDims(lazyImage);
         lazyImage.src = `${lazyImage.dataset.src}?w=${lazyImage.offsetWidth}&h=${lazyImage.offsetHeight}`;
         lazyImage.classList.remove("lazy");
         lazyImageObserver.unobserve(lazyImage);
@@ -60,6 +55,7 @@ function lazyLoadingWihtoutIntersectionObserver() {
           if ((lazyImage.getBoundingClientRect().top <= window.innerHeight && lazyImage.getBoundingClientRect().bottom >= 0) && getComputedStyle(lazyImage).display !== "none") {
             lazyImage.style.opacity = 0.0;
             lazyImage.onload = lazyLoadAnim;
+            setTempDims(lazyImage);
             lazyImage.src = `${lazyImage.dataset.src}?w=${lazyImage.offsetWidth}&h=${lazyImage.offsetHeight}`;
             lazyImage.classList.remove("lazy");
             lazyImages = lazyImages.filter(function(image) {
@@ -86,8 +82,8 @@ function lazyLoadingWihtoutIntersectionObserver() {
   lazyLoad();
 }
 
-
 function lazyLoadAnim(){
   this.style.transition = 'opacity .3s ease-in';
   this.style.opacity = 1.0;
+  this.style.height = "auto";
 }
