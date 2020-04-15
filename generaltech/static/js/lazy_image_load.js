@@ -29,7 +29,7 @@ function lazyLoadingWithIntersectionObserver() {
         lazyImage.style.opacity = 0.0;
         lazyImage.onload = lazyLoadAnim;
         setTempDims(lazyImage);
-        lazyImage.src = `${lazyImage.dataset.src}?w=${lazyImage.offsetWidth}&h=${lazyImage.offsetHeight}`;
+        lazyImage.src = `${lazyImage.dataset.src}?w=${lazyImage.offsetWidth}&h=${lazyImage.offsetHeight}&q=100`;
         lazyImage.classList.remove("lazy");
         lazyImageObserver.unobserve(lazyImage);
       }
@@ -56,7 +56,7 @@ function lazyLoadingWihtoutIntersectionObserver() {
             lazyImage.style.opacity = 0.0;
             lazyImage.onload = lazyLoadAnim;
             setTempDims(lazyImage);
-            lazyImage.src = `${lazyImage.dataset.src}?w=${lazyImage.offsetWidth}&h=${lazyImage.offsetHeight}`;
+            lazyImage.src = `${lazyImage.dataset.src}?w=${lazyImage.offsetWidth}&h=${lazyImage.offsetHeight}&q=100`;
             lazyImage.classList.remove("lazy");
             lazyImages = lazyImages.filter(function(image) {
               return image !== lazyImage;
