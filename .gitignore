@@ -1,7 +1,18 @@
-# Python temp files
-*/__pycache__/*
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
+db.sqlite3
+media
 
 # VSCode files
 .vscode/*
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/extensions.json
+
+/static/
 
 venv
